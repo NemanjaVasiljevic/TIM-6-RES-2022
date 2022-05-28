@@ -25,7 +25,7 @@ client.connect((socket.gethostname(), 8081))
 
 
 while True:
-    time.sleep(3)
+    
     # Create an instance of Person to send to server.
     variable = Data(random.choice(listNames),random.randint(1,500))
     # Pickle the object and send it to the server
