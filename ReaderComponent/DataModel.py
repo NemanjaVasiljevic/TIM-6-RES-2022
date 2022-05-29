@@ -1,3 +1,4 @@
+from ast import Raise
 import sys
 sys.path.append('../')
 import socket,pickle
@@ -27,4 +28,10 @@ class Reader:
     def WriteMessage(self,clientsocket,database):
         msg = clientsocket.recv(4098)
         data = pickle.loads(msg)
-        AddToTable(data.value, data.code, database)
+        try:
+            AddToTable(data.value, data.code, database)
+            print("Recieved from ReplicatorReciver:")
+            print(f"Code : {data.code}   Value: {data.value}")
+
+        except:
+            return F"Whoops. Something went wrong with writting in base!"
