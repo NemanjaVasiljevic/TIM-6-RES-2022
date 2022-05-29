@@ -10,8 +10,8 @@ db = mysql.connector.connect(
 myCursor = db.cursor()
 ############################################### konektovanje na bazu
 
-def AddToTable(value, code):
-    myCursor.execute("INSERT INTO dataset1 (value, code) VALUES (%s, %s)", (value,code))
+def AddToTable(value, code, database):
+    myCursor.execute(f"INSERT INTO {database} (value, code) VALUES (%s, %s)", (value,code))
     db.commit()
 
 def SeeTable():

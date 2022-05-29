@@ -15,7 +15,7 @@ listNames = ["CODE_ANALOG","CODE_DIGITAL","CODE_CUSTOM","CODE_LIMITSET","CODE_SI
 
 # Create a socket connection.
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect((socket.gethostname(), 8081))
+client.connect((socket.gethostname(), 8001))
 
 
 while True:

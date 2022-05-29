@@ -4,7 +4,7 @@ from Database.DatabaseFunctions import (AddToTable)
 from Database.CreateDatabase import CreateDatabase
 from Database.CreateTables import CreateTables
 import socket,pickle
-from DataModel import Data
+from DataModel import Data,Reader
 
 
 ##### ovo se radi samo prvi put prilikom pokretanja posle samo zakomenterises
@@ -12,8 +12,14 @@ from DataModel import Data
 #CreateTables()
 #############################################################################
 
-## problem kod importovanje Database foldera nece da ga vidi kao modul pa sam kopirao samo u ReaderComponent sve radi testiranja ispravnosti
+r1 = Reader(8001,"dataset1")
+clientSocket = r1.Connect()
 
+while True:
+    r1.WriteMessage(clientSocket,r1.database)
+
+
+'''
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((socket.gethostname(),8081))
 s.listen(1)
@@ -29,3 +35,4 @@ while True:
     AddToTable(data.value, data.code)
    
 clientsocket.close();
+'''
