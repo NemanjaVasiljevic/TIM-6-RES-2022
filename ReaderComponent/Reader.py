@@ -4,7 +4,7 @@ from Database.DatabaseFunctions import (AddToTable)
 from Database.CreateDatabase import CreateDatabase
 from Database.CreateTables import CreateTables
 import socket,pickle
-from DataModel import Data,Reader
+from Model.DataModel import Data,Reader
 
 
 ##### ovo se radi samo prvi put prilikom pokretanja posle samo zakomenterises

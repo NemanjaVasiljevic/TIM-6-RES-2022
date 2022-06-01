@@ -1,8 +1,7 @@
-import socket 
-import pickle
-import random
-import time
-from DataModel import Data
+import sys
+sys.path.append('../')
+import socket,pickle,time,random
+from Model.DataModel import Data
 
 
 

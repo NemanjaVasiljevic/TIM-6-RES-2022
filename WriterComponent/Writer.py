@@ -1,7 +1,7 @@
-import socket
-import pickle
-import time,random
-from DataModel import Data
+import sys
+sys.path.append('../')
+import socket,pickle,time,random
+from Model.DataModel import Data
 listNames = ["CODE_ANALOG","CODE_DIGITAL","CODE_CUSTOM","CODE_LIMITSET","CODE_SINGLENOE","CODE_MULTIPLENODE","CODE_CONSUMER","CODE_SOURCE"]
 
 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
