@@ -8,7 +8,7 @@ s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 s.connect((socket.gethostname(),8000))
 while True:
     time.sleep(2)
-    variable = Data(random.choice(listNames),random.randint(1,500))
+    variable = Data(random.randint(1,500),random.choice(listNames))
     data_string = pickle.dumps(variable)
     s.send(data_string)
     print("Sending to ReplicatorSender:")
