@@ -2,7 +2,7 @@ from ast import Raise
 import sys
 sys.path.append('../')
 import socket,pickle
-from Database.DatabaseFunctions import (AddToTable)
+from Database.DatabaseFunctions import (AddToTable, ReadFromTable)
 
 
 class Data:
@@ -10,10 +10,12 @@ class Data:
         self.value = value
         self.code = code
 
+#########################################################################################################
 class Reader:
     def __init__(self,port,database):
         self.port = port
         self.database = database
+
 
     def Connect(self):
         try:
@@ -28,9 +30,12 @@ class Reader:
         except:
             return F"Connection failed."
 
+
     def WriteData(self,clientsocket,database):
+
         msg = clientsocket.recv(4098)
         data = pickle.loads(msg)
+
         try:
             AddToTable(data.value, data.code, database)
             print("Recieved from ReplicatorReciver:")
@@ -38,3 +43,10 @@ class Reader:
 
         except:
             return F"Whoops. Something went wrong with writting in base!"
+
+
+    def ReadData(self,code):
+        data = []
+        data = ReadFromTable(code, self.database)
+        return data
+#########################################################################################################

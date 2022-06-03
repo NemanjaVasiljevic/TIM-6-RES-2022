@@ -1,4 +1,5 @@
 import mysql.connector
+from datetime import datetime
 
 db = mysql.connector.connect(
     host = "127.0.0.1",
@@ -11,12 +12,18 @@ myCursor = db.cursor()
 ############################################### konektovanje na bazu
 
 def AddToTable(value, code, database):
-    myCursor.execute(f"INSERT INTO {database} (value, code) VALUES (%s, %s)", (value,code))
+    now = datetime.now()
+
+    #now = now.strftime("%H:%M:%S")
+
+    myCursor.execute(f"INSERT INTO {database} (value, code, timeStamp) VALUES (%s, %s, %s)", (value,code,now))
     db.commit()
 
-def SeeTable():
-    myCursor.execute("SELECT * FROM dataset1")
+def ReadFromTable(code, database):
+    data = []
+    myCursor.execute(F"SELECT * FROM {database} WHERE code in ('{code}')")
     for x in myCursor:
-        print(x)
+        data.append(x)
     
+    return data
 
