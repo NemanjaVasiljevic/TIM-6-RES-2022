@@ -36,13 +36,14 @@ class Reader:
         msg = clientsocket.recv(4098)
         data = pickle.loads(msg)
 
-        try:
-            AddToTable(data.value, data.code, database)
-            print("Recieved from ReplicatorReciver:")
-            print(f"Code : {data.code}   Value: {data.value}")
+        for x in data:
+            try:
+                AddToTable(x.value, x.code, database)
+                print("Recieved from ReplicatorReciver:")
+                print(f"Code : {x.code}   Value: {x.value}")
 
-        except:
-            return F"Whoops. Something went wrong with writting in base!"
+            except:
+                return F"Whoops. Something went wrong with writting in base!"
 
 
     def ReadData(self,code):

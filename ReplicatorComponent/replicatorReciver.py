@@ -35,8 +35,8 @@ conn, addr = replicatorSocketReciever.accept()
 print('Connected by', addr)
 
 
-
-
+list = []
+count = 0
 
 while True:
     
@@ -50,9 +50,16 @@ while True:
     data_variable = pickle.loads(data)
     print("Recieved from ReplicatorSender:")
     print(f"Code : {data_variable.code}   Value: {data_variable.value}")
-    print("Data Sent to Reader component...")
-    data_string = pickle.dumps(data_variable)
-    readerSocket.send(data_string)
+    list.append(data_variable)
+    print("Dodao u listu")
+    count = count + 1
+    if count == 10:
+        print("Data Sent to Reader component...")
+        print(list)
+        data_string = pickle.dumps(list)
+        readerSocket.send(data_string)
+        list.clear()
+        count = 0
     
     
 

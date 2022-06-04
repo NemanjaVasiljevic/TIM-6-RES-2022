@@ -12,7 +12,20 @@ from Model.DataModel import Data,Reader
 #############################################################################
 
 r1 = Reader(8001,"dataset1")
-clientSocket = r1.Connect()
+clientSocket1 = r1.Connect()
+#r2 = Reader(8002,"dataset2")
+#clientSocket2 = r1.Connect()
+#r3 = Reader(8003,"dataset3")
+#clientSocket3 = r1.Connect()
+#r4 = Reader(8004,"dataset4")
+#clientSocket4 = r1.Connect()
+
+
+
+
+while True:
+      r1.WriteData(clientSocket1,"dataset1")
+
 
 #dataRead = r1.ReadData("CODE_DIGITAL")
 
@@ -20,5 +33,3 @@ clientSocket = r1.Connect()
 #    x = Data(x[0],x[1])
 #    print(f"Podatak ")
 
-while True:
-   r1.WriteData(clientSocket,r1.database)
