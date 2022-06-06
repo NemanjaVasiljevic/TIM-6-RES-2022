@@ -1,5 +1,5 @@
 import mysql.connector
-
+from datetime import datetime
 db = mysql.connector.connect(
     host = "localhost",
     user = "root",
@@ -11,9 +11,11 @@ myCursor = db.cursor()
 ############################################### konektovanje na bazu
 
 def AddToTable(value, code, database):
-    myCursor.execute(f"INSERT INTO {database} (value, code) VALUES (%s, %s)", (value,code))
-    db.commit()
+    now = datetime.now()
 
+    #now = now.strftime("%H:%M:%S")
+    myCursor.execute(f"INSERT INTO {database} (value, code, timeStamp) VALUES (%s, %s, %s)", (value,code,now))
+    db.commit()
 def ReadFromTable(code1, code2, database):
 
     myCursor.execute(F"SELECT * FROM {database} WHERE code in ('{code1}', '{code2}') order by id desc")
