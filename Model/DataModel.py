@@ -3,6 +3,8 @@ import sys
 sys.path.append('../')
 import socket,pickle
 from Database.DatabaseFunctions import (AddToTable)
+from Database.DatabaseFunctions import (ReadFromTable)
+
 
 
 class Data:
@@ -41,6 +43,12 @@ class Reader:
         except:
             return F"Whoops. Something went wrong with writting in base!"
 	
+
+    def ReadData(self,code1, code2):
+        data1, data2 = ReadFromTable(code1,code2, self.database)
+        return data1, data2
+
+
 class CollectionDescription:
         def __init__(self,historicalCollection,code):
             if code == "CODE_ANALOG" or "CODE_DIGITAL":
@@ -52,4 +60,10 @@ class CollectionDescription:
             elif code ==  "CODE_CONSUMER" or "CODE_SOURCE":
                 self.dataSet = 4    
 
-            self.historicalCollection = historicalCollection	
+            self.historicalCollection = historicalCollection
+
+class HistoricalValue:
+        def __init__(self, code, fromTime, toTime):
+            self.code = code
+            self.fromTime = fromTime
+            self.toTime = toTime
