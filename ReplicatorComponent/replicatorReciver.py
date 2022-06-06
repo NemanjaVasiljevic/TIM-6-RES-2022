@@ -50,9 +50,11 @@ while True:
     data_variable = pickle.loads(data)
     print("Recieved from ReplicatorSender:")
     print(f"Code : {data_variable.code}   Value: {data_variable.value}")
+
     list.append(data_variable)
-    print("Dodao u listu")
+
     count = count + 1
+
     if count == 10:
         print("Data Sent to Reader component...")
         print(list)

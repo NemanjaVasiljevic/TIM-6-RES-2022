@@ -19,11 +19,21 @@ def AddToTable(value, code, database):
     myCursor.execute(f"INSERT INTO {database} (value, code, timeStamp) VALUES (%s, %s, %s)", (value,code,now))
     db.commit()
 
-def ReadFromTable(code, database):
-    data = []
-    myCursor.execute(F"SELECT * FROM {database} WHERE code in ('{code}')")
+def ReadFromTable(code1, code2, database):
+
+    myCursor.execute(F"SELECT * FROM {database} WHERE code in ('{code1}', '{code2}') order by id desc")
+    first = 1
+
     for x in myCursor:
-        data.append(x)
+
+        if(first == 1):
+            data1 = x
+            first = 0
+            
+        if(x[1] != data1[1]):
+            data2 = x
+            break
+
     
-    return data
+    return data1,data2
 

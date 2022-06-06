@@ -9,6 +9,8 @@ class Data:
     def __init__(self, value, code):
         self.value = value
         self.code = code
+    def str(self):
+        return f"Code: {self.code} Value: {self.value}"
 
 #########################################################################################################
 class Reader:
@@ -46,8 +48,15 @@ class Reader:
                 return F"Whoops. Something went wrong with writting in base!"
 
 
-    def ReadData(self,code):
-        data = []
-        data = ReadFromTable(code, self.database)
-        return data
+    def ReadData(self,code1, code2):
+        data1, data2 = ReadFromTable(code1,code2, self.database)
+        return data1, data2
+
+
 #########################################################################################################
+
+class HistoricalValue:
+        def __init__(self, code, fromTime, toTime):
+            self.code = code
+            self.fromTime = fromTime
+            self.toTime = toTime
