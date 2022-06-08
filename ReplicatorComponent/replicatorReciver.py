@@ -1,7 +1,8 @@
 import sys
+from turtle import update
 sys.path.append('../')
 import socket,pickle,time,random
-from Model.DataModel import Data
+from Model.DataModel import Data, DeltaCD
 from Model.DataModel import CollectionDescription
 
 
@@ -36,8 +37,8 @@ conn, addr = replicatorSocketReciever.accept()
 print('Connected by', addr)
 
 historicalCollection = []
-
-
+ADD=[]
+UPDATE=[]
 
 while True:
 
@@ -50,9 +51,12 @@ while True:
 
      #pakovanje u cd klasu i slanje reader-u
      cd = CollectionDescription(historicalCollection,data_variable.code)
-     print("Data Sent to Reader component...")
-     data_string = pickle.dumps(cd)
-     readerSocket.send(data_string)
+     ADD.append(cd)
+     if(ADD.count+UPDATE.count==10):
+          print("Data Sent to Reader component...")
+          deltaCD=DeltaCD(ADD,UPDATE)
+          data_string = pickle.dumps(deltaCD)
+          readerSocket.send(data_string)
     
     
 
