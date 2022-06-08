@@ -25,10 +25,8 @@ while True:
     data = conn.recv(4096)
     data_variable = pickle.loads(data)
     print("Recieved from Writer:")
-    
-    if(type(data_variable) is Data):
-
-        print(f"Code : {data_variable.code}   Value: {data_variable.value}")
+    if(type(data_variable) is Data): 
+        print(data_variable)
         # Pickle the object and send it to ReplicatorReciever
         data_string = pickle.dumps(data_variable)
         replicatorSocketSender.send(data_string)

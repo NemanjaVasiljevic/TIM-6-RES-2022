@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../')
 import socket,pickle,time,random
-from Model.DataModel import Data
+from Model.DataModel import Data,CollectionDescription
 
 
 
@@ -35,34 +35,41 @@ conn, addr = replicatorSocketReciever.accept()
 print('Connected by', addr)
 
 
-list = []
+historicalCollection = []
 count = 0
 
 while True:
     
-    # Create an instance of Person to send to server.
-    #variable = Data(random.choice(listNames),random.randint(1,500))
-    # Pickle the object and send it to the server
-    #data_string = pickle.dumps(variable)
-    #readerSocket.send(data_string)
 
     data = conn.recv(4096)
     data_variable = pickle.loads(data)
     print("Recieved from ReplicatorSender:")
     print(f"Code : {data_variable.code}   Value: {data_variable.value}")
 
-    list.append(data_variable)
+
+    #pakovanje u cd klasu i slanje reader-u
+    cd = CollectionDescription(historicalCollection,data_variable.code)
+    print("Data Sent to Reader component...")
+    data_string = pickle.dumps(cd)
+    readerSocket.send(data_string)
+
+    ''' 
+    SLANJE LISTE PODATAKA
+
+    historicalCollection.append(data_variable)
 
     count = count + 1
 
     if count == 10:
         print("Data Sent to Reader component...")
-        print(list)
-        data_string = pickle.dumps(list)
+        print(historicalCollection)
+        data_string = pickle.dumps(historicalCollection)
         readerSocket.send(data_string)
-        list.clear()
+        historicalCollection.clear()
         count = 0
     
-    
-
+    '''
 client.close()
+
+
+     

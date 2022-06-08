@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../')
 import mysql.connector
 from datetime import datetime
 
@@ -36,4 +38,16 @@ def ReadFromTable(code1, code2, database):
 
     
     return data1,data2
+
+def ReadHistorical(histociralValue,database):
+
+    myCursor.execute(F"SELECT * FROM {database} WHERE code = '{histociralValue.code}' and (timeStamp >= '{histociralValue.fromTime}' and timeStamp <= '{histociralValue.toTime}')")
+
+    retArray = []
+
+    for x in myCursor:
+        retArray.append(x)
+    
+    return retArray
+        
 
