@@ -1,5 +1,8 @@
 from ast import Raise
+from audioop import add
 import sys
+from turtle import update
+from typing_extensions import Self
 sys.path.append('../')
 import socket,pickle
 from Database.DatabaseFunctions import (AddToTable)
@@ -67,3 +70,9 @@ class HistoricalValue:
             self.code = code
             self.fromTime = fromTime
             self.toTime = toTime
+
+class DeltaCD:
+   def __init__(self,ADD,UPDATE):
+       self.ADD=ADD
+       self.UPDATE=UPDATE
+       
