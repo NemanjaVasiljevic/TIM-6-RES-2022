@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../')
 import socket,pickle,time,random
-from Model.DataModel import Data
+from Model.DataModel import Data, Request
 
 
 
@@ -9,7 +9,7 @@ from Model.DataModel import Data
 
 #Socket za primanje podataka od Writer komponente
 writerSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-writerSocket.bind((socket.gethostname(), 8000))
+writerSocket.bind((socket.gethostname(), 7000))
 writerSocket.listen()
 
 #Socket za komunikaciju sa ReplicatorReciever komponentom
@@ -25,12 +25,17 @@ while True:
     data = conn.recv(4096)
     data_variable = pickle.loads(data)
     print("Recieved from Writer:")
-    if(type(data_variable) is Data): 
-        print(data_variable)
+    if(data_variable.request == "WriteRequest"): 
+        print(F"{data_variable.request,data_variable.data.value, data_variable.data.code}")
         # Pickle the object and send it to ReplicatorReciever
         data_string = pickle.dumps(data_variable)
         replicatorSocketSender.send(data_string)
-        print("Data sent to ReplicatorReciever")
-    
-    
+        print("Uspesno poslao WriteRequest i podatke uz njega replikatoru")
+
+    elif(data_variable.request == "ReadTable"):
+        data_string = pickle.dumps(data_variable)
+        replicatorSocketSender.send(data_string)
+        print("Uspesno poslao ReadRequest i podatke uz njega replikatoru")
+
+
 conn.close()

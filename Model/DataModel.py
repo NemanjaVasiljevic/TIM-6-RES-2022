@@ -6,6 +6,8 @@ import socket,pickle
 from Database.DatabaseFunctions import (AddToTable, ReadFromTable, ReadHistorical)
 
 
+listCodes = ["CODE_ANALOG","CODE_DIGITAL","CODE_CUSTOM","CODE_LIMITSET","CODE_SINGLENOE","CODE_MULTIPLENODE","CODE_CONSUMER","CODE_SOURCE"]
+
 class Request:
     def __init__(self,request,data):
         self.request = request
@@ -44,16 +46,11 @@ class Reader:
             return F"Connection failed."
 
 
-    def WriteData(self,clientsocket,database):
-
-        msg = clientsocket.recv(4098)
-        data = pickle.loads(msg)
-
-        for x in data:
+    def WriteData(self,data):
             try:
-                AddToTable(x.value, x.code, database)
+                AddToTable(data.value, data.code, self.database)
                 print("Recieved from ReplicatorReciver:")
-                print(f"Code : {x.code}   Value: {x.value}")
+                print(f"Code : {data.code}   Value: {data.value}")
 
             except:
                 return F"Whoops. Something went wrong with writting in base!"
@@ -81,14 +78,22 @@ class Reader:
 class CollectionDescription:
     
         def __init__(self,historicalCollection,code):
-            if code == "CODE_ANALOG" or "CODE_DIGITAL":
+            if code ==listCodes[0] or code == listCodes[1] :
                 self.dataSet = 1
-            elif code ==  "CODE_CUSTOM" or "CODE_LIMITSET":
+                #print("Usao u dataset1")
+            elif code ==  listCodes[2] or code == listCodes[3]:
                 self.dataSet = 2
-            elif code ==  "CODE_SINGLENOE" or "CODE_MULTIPLENODE":
+                #print("Usao u dataset2")
+
+            elif code == listCodes[4] or code == listCodes[5]:
                 self.dataSet = 3
-            elif code ==  "CODE_CONSUMER" or "CODE_SOURCE":
-                self.dataSet = 4    
+                #print("Usao u dataset3")
+
+            elif code ==listCodes[6] or code == listCodes[7]:
+                self.dataSet = 4
+                #print("Usao u dataset4")
+            else:
+                self.dataSet = 0
 
             self.historicalCollection = historicalCollection
 

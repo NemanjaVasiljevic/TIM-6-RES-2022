@@ -21,7 +21,7 @@ from Model.DataModel import Data,CollectionDescription
 # Create a socket connection.
 #Socket sa prosledijivanje podataka Reader komponenti
 readerSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-readerSocket.connect((socket.gethostname(), 8001))
+readerSocket.connect((socket.gethostname(), 8000))
 
 
 
@@ -42,16 +42,23 @@ while True:
     
 
     data = conn.recv(4096)
-    data_variable = pickle.loads(data)
-    print("Recieved from ReplicatorSender:")
-    print(f"Code : {data_variable.code}   Value: {data_variable.value}")
+    data_variable = pickle.loads(data)  # ovde stize podatak tipa ("WriteRequest, data")
 
+    if(data_variable.request == "WriteRequest"):
 
-    #pakovanje u cd klasu i slanje reader-u
-    cd = CollectionDescription(historicalCollection,data_variable.code)
-    print("Data Sent to Reader component...")
-    data_string = pickle.dumps(cd)
-    readerSocket.send(data_string)
+        print("Recieved from ReplicatorSender:")
+        print(f"Code : {data_variable.data.code}   Value: {data_variable.data.value}")
+
+        #pakovanje u cd klasu i slanje reader-u
+        historicalCollection.append(Data(data_variable.data.value, data_variable.data.code))
+        cd = CollectionDescription(historicalCollection,data_variable.data.code)
+        print(F"Data Sent to Reader component...   CD DATASET = {cd.dataSet}")
+        data_string = pickle.dumps(cd)
+        readerSocket.send(data_string)
+    
+    elif data_variable.request == "ReadTable":
+        data_string = pickle.dumps(data_variable.request)
+        readerSocket.send(data_string)
 
     ''' 
     SLANJE LISTE PODATAKA
