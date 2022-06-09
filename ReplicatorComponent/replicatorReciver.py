@@ -3,6 +3,8 @@ sys.path.append('../')
 import socket,pickle,time,random
 from Model.DataModel import Data
 from Model.DataModel import CollectionDescription
+from Model.DataModel import DeltaCD
+
 
 
 
@@ -36,7 +38,8 @@ conn, addr = replicatorSocketReciever.accept()
 print('Connected by', addr)
 
 historicalCollection = []
-
+ADD=[]
+UPDATE=[]
 
 
 while True:
@@ -50,10 +53,19 @@ while True:
 
      #pakovanje u cd klasu i slanje reader-u
      cd = CollectionDescription(historicalCollection,data_variable.code)
-     print("Data Sent to Reader component...")
-     data_string = pickle.dumps(cd)
-     readerSocket.send(data_string)
-    
-    
+     if data_variable.code in codes:
+          UPDATE.append(cd)
+     else:
+          ADD.append(cd)     
 
+     if(ADD.count + UPDATE.count == 10):
+          #print("Data Sent to Reader component...")
+          #print(f"CODE : {data_variable.code}   DATASET : {cd.dataSet}")
+          deltaCD = DeltaCD(ADD,UPDATE)
+          addUpdate = deltaCD.ADD + deltaCD.UPDATE
+          data_string = pickle.dumps(addUpdate)
+          readerSocket.send(data_string)
+     codes = ADD + UPDATE
+     ADD.clear()
+     UPDATE.clear()
 client.close()
