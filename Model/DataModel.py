@@ -36,12 +36,13 @@ class Reader:
           
             
         try:
-            print("Recieved from ReplicatorReciver:")
-            print(f"Code : {data.historicalCollection[-1].code}   DataSet: {data.dataSet}")
-            print("HistoricalCollection:")
-            print(*data.historicalCollection, sep="\n")
-            AddToTable(data.historicalCollection[-1].value, data.historicalCollection[-1].code,database)
-            print("Succsessfully added object to the table")
+            for x in data:
+                print("Recieved from ReplicatorReciver:")
+                print(f"Code : {data.historicalCollection[-1].code}   DataSet: {data.dataSet}")
+                print("HistoricalCollection:")
+                print(*data.historicalCollection, sep="\n")
+                AddToTable(data.historicalCollection[-1].value, data.historicalCollection[-1].code,database)
+                print("Succsessfully added object to the table")
         except:
             return F"Whoops. Something went wrong with writting in base!"
         
@@ -55,18 +56,18 @@ class CollectionDescription:
         def __init__(self,historicalCollection,code):
             if code ==listCodes[0] or code == listCodes[1] :
                 self.dataSet = 1
-                #print("Usao u dataset1")
+                
             elif code ==  listCodes[2] or code == listCodes[3]:
                 self.dataSet = 2
-                #print("Usao u dataset2")
+                
 
             elif code == listCodes[4] or code == listCodes[5]:
                 self.dataSet = 3
-                #print("Usao u dataset3")
+                
 
             elif code ==listCodes[6] or code == listCodes[7]:
                 self.dataSet = 4
-                #print("Usao u dataset4")
+                
             else:
                 self.dataSet = 0
 
@@ -77,3 +78,8 @@ class HistoricalValue:
             self.code = code
             self.fromTime = fromTime
             self.toTime = toTime
+
+class DeltaCD:
+   def __init__(self,ADD,UPDATE):
+       self.ADD=ADD
+       self.UPDATE=UPDATE
