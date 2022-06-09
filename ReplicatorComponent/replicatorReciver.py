@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../')
 import socket,pickle,time,random
-from Model.DataModel import Data,CollectionDescription
+from Model.DataModel import Data,CollectionDescription, DeltaCD
 
 
 
@@ -36,13 +36,17 @@ print('Connected by', addr)
 
 
 historicalCollection = []
-count = 0
+ADD=[]
+UPDATE=[]
+codes = []
+countADD = 0
+countUPDATE = 0
 
 while True:
     
 
     data = conn.recv(4096)
-    data_variable = pickle.loads(data)  # ovde stize podatak tipa ("WriteRequest, data")
+    data_variable = pickle.loads(data)  # ovde stize podatak tipa ("WriteRequest, data")  data: value code
 
     if(data_variable.request == "WriteRequest"):
 
@@ -52,12 +56,34 @@ while True:
         #pakovanje u cd klasu i slanje reader-u
         historicalCollection.append(Data(data_variable.data.value, data_variable.data.code))
         cd = CollectionDescription(historicalCollection,data_variable.data.code)
-        print(F"Data Sent to Reader component...   CD DATASET = {cd.dataSet}")
-        data_string = pickle.dumps(cd)
-        readerSocket.send(data_string)
+
+        print(F"CD izgleda ovako: {cd.dataSet} {cd.historicalCollection[-1]}")
+
+        if data_variable.data.code in codes:
+          UPDATE.append(cd)
+        else:
+            ADD.append(cd)     
+
+        count = len(ADD) + len(UPDATE)
+
+        if(count == 10):
+            #print("Data Sent to Reader component...")
+            #print(f"CODE : {data_variable.code}   DATASET : {cd.dataSet}")
+            deltaCD = DeltaCD(ADD,UPDATE)
+
+            data_variable.data = deltaCD.ADD + deltaCD.UPDATE
+            data_string = pickle.dumps(data_variable)
+            readerSocket.send(data_string)
+            print("\nPOSLAO\n")
+            ADD.clear()
+            UPDATE.clear()
+            count = 0
+
+        codes = ADD + UPDATE
+
     
     elif data_variable.request == "ReadTable":
-        data_string = pickle.dumps(data_variable.request)
+        data_string = pickle.dumps(data_variable)
         readerSocket.send(data_string)
 
     ''' 

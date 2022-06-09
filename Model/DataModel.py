@@ -8,6 +8,8 @@ from Database.DatabaseFunctions import (AddToTable, ReadFromTable, ReadHistorica
 
 listCodes = ["CODE_ANALOG","CODE_DIGITAL","CODE_CUSTOM","CODE_LIMITSET","CODE_SINGLENOE","CODE_MULTIPLENODE","CODE_CONSUMER","CODE_SOURCE"]
 
+########################################################################################################
+
 class Request:
     def __init__(self,request,data):
         self.request = request
@@ -20,15 +22,15 @@ class Data:
     def __init__(self, value, code):
         self.value = value
         self.code = code
-    def str(self):
+
+    def __str__(self):
         return f"Code: {self.code} Value: {self.value}"
 
 
 #########################################################################################################
 
 class Reader:
-    def __init__(self,port,database):
-        self.port = port
+    def __init__(self,database):
         self.database = database
 
 
@@ -62,6 +64,7 @@ class Reader:
             return data1, data2
         except:
             return Error
+
 
     def ReadHistory(self,historicalValue):
         try:
@@ -100,9 +103,17 @@ class CollectionDescription:
 
 
 #########################################################################################################
+
 class HistoricalValue:
         def __init__(self, code, fromTime, toTime):
             self.code = code
             self.fromTime = fromTime
             self.toTime = toTime
 
+
+#########################################################################################################
+
+class DeltaCD:
+   def __init__(self,ADD,UPDATE):
+       self.ADD=ADD
+       self.UPDATE=UPDATE

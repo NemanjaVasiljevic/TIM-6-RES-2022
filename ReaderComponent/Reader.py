@@ -18,43 +18,48 @@ print("Waiting for connection...")
 replicatorSocket, address = s.accept()
 print(f"Connection established from address {address}")
 
-r1 = Reader(8001, "dataset1")
-r2 = Reader(8002, "dataset2")
-r3 = Reader(8003, "dataset3")
-r4 = Reader(8004, "dataset4")
+r1 = Reader("dataset1")
+r2 = Reader("dataset2")
+r3 = Reader("dataset3")
+r4 = Reader("dataset4")
 
 while True:
-    data = replicatorSocket.recv(4098)
-    data = pickle.loads(data)
+    msg = replicatorSocket.recv(4098)
+    recived = pickle.loads(msg)
 
-    if(type(data) is CollectionDescription):
-        value = data.historicalCollection[-1]
-        dataSet = data.dataSet
-        print("Recieved from ReplicatorReciver:")
-        print(f"Code : {value.code}   Value: {value.value} writing into dataset{dataSet}")
+    if recived.request == "WriteRequest":
+        #print("Usao u WriteRequest")
+        CDArray = recived.data
+        
+        counter = 10
 
-        if dataSet == 1:
+        for x in CDArray:
 
-            r1.WriteData(value)
-            
-        elif dataSet == 2:
-            
-            r2.WriteData(value)
+            dataSet = x.dataSet
+            data = x.historicalCollection[-counter]
+            if dataSet == 1:
 
-        elif dataSet == 3:
-            
-            r3.WriteData(value)
+                r1.WriteData(data)
+                
+            elif dataSet == 2:
+                
+                r2.WriteData(data)
 
-        elif dataSet == 4:
-            
-            r4.WriteData(value)
+            elif dataSet == 3:
+                
+                r3.WriteData(data)
 
-    elif data == "ReadTable":
-        dataRead1, dataRead2 = r1.ReadData("CODE_DIGITAL", "CODE_ANALOG")
+            elif dataSet == 4:
+                
+                r4.WriteData(data)
+
+            counter = counter - 1 
+
+    elif recived.request == "ReadTable":
+        dataRead1, dataRead2 = r4.ReadData("CODE_CONSUMER", "CODE_SOURCE")
         dataRead1 = Data(dataRead1[0],dataRead1[1])
         dataRead2 = Data(dataRead2[0],dataRead2[1])
-        print(F"Value 1 : {dataRead1.str()}\n Value 2: {dataRead2.str()}")
-        time.sleep(3)
+        print(F"{dataRead1}\n{dataRead2}")
 
 
 

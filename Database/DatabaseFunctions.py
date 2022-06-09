@@ -23,10 +23,15 @@ def AddToTable(value, code, database):
 
 def ReadFromTable(code1, code2, database):
 
+    print("Usao u ReadTable funkciju")
+
     myCursor.execute(F"SELECT * FROM {database} WHERE code in ('{code1}', '{code2}') order by id desc")
     first = 1
 
+    print("Uradio execute")
+
     for x in myCursor:
+        print("Usao u iteraciju")
 
         if(first == 1):
             data1 = x
@@ -36,6 +41,8 @@ def ReadFromTable(code1, code2, database):
             data2 = x
             break
 
+    
+    print("Nasao je")
     
     return data1,data2
 
