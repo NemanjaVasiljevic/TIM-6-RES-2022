@@ -59,6 +59,11 @@ class Reader:
 
         
     def CalculateDifference(self,new):
+        
+        if new.code == "CODE_DIGITAL":
+            return True
+
+        
         old = ReadFromTable(new.code,"", self.database)
         oldData = Data(old[0],old[1])
         difference = float(oldData.value) * 0.02

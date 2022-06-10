@@ -39,15 +39,6 @@ def ReadFromTable(code1, code2, database):
     
     return data1,data2
 
-def FindLastOne(code, database):
-    myCursor.execute(F"SELECT * FROM {database} WHERE code = '{code}' order by id desc")
-
-    for x in myCursor:
-        result = x
-        break
-
-    return result
-
 def ReadHistorical(histociralValue,database):
 
     myCursor.execute(F"SELECT * FROM {database} WHERE code = '{histociralValue.code}' and (timeStamp >= '{histociralValue.fromTime}' and timeStamp <= '{histociralValue.toTime}')")
