@@ -9,8 +9,7 @@ db = mysql.connector.connect(
     passwd = "1969",
     database = "readerDB"
 )
-
-myCursor = db.cursor()
+myCursor = db.cursor(buffered=True)
 ############################################### konektovanje na bazu
 
 def AddToTable(value, code, database):
@@ -23,28 +22,31 @@ def AddToTable(value, code, database):
 
 def ReadFromTable(code1, code2, database):
 
-    print("Usao u ReadTable funkciju")
-
     myCursor.execute(F"SELECT * FROM {database} WHERE code in ('{code1}', '{code2}') order by id desc")
     first = 1
 
-    print("Uradio execute")
-
     for x in myCursor:
-        print("Usao u iteraciju")
 
         if(first == 1):
             data1 = x
             first = 0
+            if(code2 == ""):
+                return data1
             
         if(x[1] != data1[1]):
             data2 = x
             break
-
-    
-    print("Nasao je")
     
     return data1,data2
+
+def FindLastOne(code, database):
+    myCursor.execute(F"SELECT * FROM {database} WHERE code = '{code}' order by id desc")
+
+    for x in myCursor:
+        result = x
+        break
+
+    return result
 
 def ReadHistorical(histociralValue,database):
 
@@ -57,4 +59,3 @@ def ReadHistorical(histociralValue,database):
     
     return retArray
         
-

@@ -9,7 +9,7 @@ s.connect((socket.gethostname(),7000))
 while True:
     time.sleep(2)
     data = Data(random.randint(1,500),random.choice(listNames))
-    request = Request("ReadTable",data)
+    request = Request("WriteRequest",data)
 
 
     data_string = pickle.dumps(request)

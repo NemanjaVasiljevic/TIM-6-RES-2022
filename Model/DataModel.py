@@ -3,7 +3,7 @@ from msilib.schema import Error
 import sys
 sys.path.append('../')
 import socket,pickle
-from Database.DatabaseFunctions import (AddToTable, ReadFromTable, ReadHistorical)
+from Database.DatabaseFunctions import (AddToTable, ReadFromTable, ReadHistorical,FindLastOne)
 
 
 listCodes = ["CODE_ANALOG","CODE_DIGITAL","CODE_CUSTOM","CODE_LIMITSET","CODE_SINGLENOE","CODE_MULTIPLENODE","CODE_CONSUMER","CODE_SOURCE"]
@@ -34,26 +34,9 @@ class Reader:
         self.database = database
 
 
-    def Connect(self):
-        try:
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.bind((socket.gethostname(),self.port))
-            s.listen(1)
-            print("Waiting for connection...")
-
-            clientsocket, address = s.accept()
-            print(f"Connection established from address {address}")
-            return clientsocket
-        except:
-            return F"Connection failed."
-
-
     def WriteData(self,data):
             try:
                 AddToTable(data.value, data.code, self.database)
-                print("Recieved from ReplicatorReciver:")
-                print(f"Code : {data.code}   Value: {data.value}")
-
             except:
                 return F"Whoops. Something went wrong with writting in base!"
 
@@ -73,6 +56,19 @@ class Reader:
 
         except:
             return print(F"Greska u ReadHistory")
+
+        
+    def CalculateDifference(self,new):
+        old = ReadFromTable(new.code,"", self.database)
+        oldData = Data(old[0],old[1])
+        difference = float(oldData.value) * 0.02
+
+        print(F"\nGornja granica: {float(oldData.value) + difference} Donja granica: {float(oldData.value) - difference} Nova vrednost: {new} Stara vrednost: {oldData}\n")
+
+        if(new.value > float(oldData.value) + difference or new.value < float(oldData.value) - difference):
+            return True
+        else:
+            return False
 
 
 #########################################################################################################

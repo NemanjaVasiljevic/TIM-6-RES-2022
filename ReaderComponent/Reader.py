@@ -10,6 +10,16 @@ from Model.DataModel import CollectionDescription, Data,Reader,Request,Historica
 #CreateTables()
 #############################################################################
 
+'''
+r1 = Reader("dataset1")
+r2 = Reader("dataset2")
+r3 = Reader("dataset3")
+r4 = Reader("dataset4")
+
+data = Data(369,"CODE_ANALOG")
+if r1.CalculateDifference(data):
+    r1.WriteData(data)
+'''
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((socket.gethostname(),8000))
 s.listen(1)
@@ -28,7 +38,6 @@ while True:
     recived = pickle.loads(msg)
 
     if recived.request == "WriteRequest":
-        #print("Usao u WriteRequest")
         CDArray = recived.data
         
         counter = 10
@@ -37,23 +46,42 @@ while True:
 
             dataSet = x.dataSet
             data = x.historicalCollection[-counter]
+
             if dataSet == 1:
+                if r1.CalculateDifference(data):
+                    print(f"Added to table {r1.database} => DATA : {data.code}   Value: {data.value}")
+                    r1.WriteData(data)
+                else:
+                    print("Razlika je manja od 2% nece se upisati u bazu")
 
-                r1.WriteData(data)
-                
-            elif dataSet == 2:
-                
-                r2.WriteData(data)
 
-            elif dataSet == 3:
+            elif dataSet == 2:               
+                if r2.CalculateDifference(data):
+                    print(f"Added to table {r2.database} => DATA : {data.code}   Value: {data.value}")
+                    r2.WriteData(data)
+                else:
+                    print("Razlika je manja od 2% nece se upisati u bazu")
                 
-                r3.WriteData(data)
 
-            elif dataSet == 4:
-                
-                r4.WriteData(data)
+            elif dataSet == 3:             
+                if r3.CalculateDifference(data):
+                    print(f"Added to table {r3.database} => DATA : {data.code}   Value: {data.value}")
+                    r3.WriteData(data)
+                else:
+                    print("Razlika je manja od 2% nece se upisati u bazu")
+
+
+            elif dataSet == 4:               
+                if r4.CalculateDifference(data):
+                    print(f"Added to table {r4.database} => DATA : {data.code}   Value: {data.value}")
+                    r4.WriteData(data)
+                else:
+                    print("Razlika je manja od 2% nece se upisati u bazu")
+
 
             counter = counter - 1 
+
+
 
     elif recived.request == "ReadTable":
         dataRead1, dataRead2 = r4.ReadData("CODE_CONSUMER", "CODE_SOURCE")
@@ -62,68 +90,6 @@ while True:
         print(F"{dataRead1}\n{dataRead2}")
 
 
-
-
-
-
-
-
-
-
-
-
-    '''
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.bind((socket.gethostname(),8000))
-    s.listen(1)
-    print("Waiting for connection...")
-
-    requestSocket, address = s.accept()
-    print(f"Connection established from address {address}")
-
-    data = requestSocket.recv(4098)
-    #request = Request(pickle.loads(request)) #ovde je stigao samo request
-
-    data = data.historicalCollection[-1]
-
-
-    r1 = Reader(8001,"dataset1")
-    #clientSocket1 = r1.Connect()
-    r2 = Reader(8002,"dataset2")
-    #clientSocket2 = r1.Connect()
-    r3 = Reader(8003,"dataset3")
-    #clientSocket3 = r1.Connect()
-    r4 = Reader(8004,"dataset4")
-    #clientSocket4 = r1.Connect()
-
-
-
-
-    while True:
-
-
-        
-        if(request == "WriteRequest"):
-            data = request.recv(4098)
-
-            if(data.dataSet == 1):
-                r1.ReciveData()
-        
-        else:
-            dataRead1, dataRead2 = r1.ReadData("CODE_DIGITAL", "CODE_ANALOG")
-            dataRead1 = Data(dataRead1[0],dataRead1[1])
-            dataRead2 = Data(dataRead2[0],dataRead2[1])
-            print(F"Value 1 : {dataRead1.str()}\n Value 2: {dataRead2.str()}")
-            val = HistoricalValue("CODE_DIGITAL","2022-06-04 13:15:49", "2022-06-04 13:16:09")
-            response = r1.ReadHistory(val)
-
-            for x in response:
-                print(F"Value: {x[0]} Code: {x[1]}")
-
-        '''
-
-
-
-
-
-
+    elif recived.request == "ReadHistorical":
+        #result = r1.ReadHistory(historicalValue)
+        print("")
