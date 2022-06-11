@@ -2,7 +2,7 @@ import sys
 sys.path.append('../')
 import socket,pickle,time,random
 from Model.DataModel import Data
-
+from Logger import logger
 
 
 
@@ -16,20 +16,24 @@ writerSocket.listen()
 replicatorSocketSender= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 replicatorSocketSender.connect((socket.gethostname(),10100))
 
-print("Waiting for the Writer to send data...")
+componentName = 'REPLICATOR SENDER'
+
+logger.logWriter("Waiting for the Writer to send data...", componentName)
 conn, addr = writerSocket.accept()
-print('Connected by', addr)
+logger.logWriter('Connected by' + str(addr), componentName)
 
 while True:
     
     data = conn.recv(4096)
     data_variable = pickle.loads(data)
-    print("Recieved from Writer:")
-    print(f"Code : {data_variable.code}   Value: {data_variable.value}")
-    # Pickle the object and send it to ReplicatorReciever
-    data_string = pickle.dumps(data_variable)
-    replicatorSocketSender.send(data_string)
-    print("Data sent to ReplicatorReciever")
+    log = "Recieved from Writer:"
+    if(type(data_variable) is Data): 
+        log += str(data_variable)
+        logger.logWriter(log, componentName)
+        # Pickle the object and send it to ReplicatorReciever
+        data_string = pickle.dumps(data_variable)
+        replicatorSocketSender.send(data_string)
+        logger.logWriter("Data sent to ReplicatorReciever", componentName)
     
     
 conn.close()
