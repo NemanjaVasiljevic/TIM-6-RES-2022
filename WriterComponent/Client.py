@@ -16,6 +16,7 @@ while(True):
     if(q1=="1"):  
       os.system("start cmd /k python Writer.py")
     elif(q1=="2"):
+      os.close("Writer.py")
       gasi==True
     elif(q1=="3"):
       dateFrom=input("Unesite datum od kada zelite da citate iz baze: ")

@@ -1,13 +1,14 @@
 import sys
 sys.path.append('../')
-import socket,pickle,time,random
+import socket,pickle,time,random,os
 from Model.DataModel import Data, HistoricalValue,Request
 listNames = ["CODE_ANALOG","CODE_DIGITAL","CODE_CUSTOM","CODE_LIMITSET","CODE_SINGLENOE","CODE_MULTIPLENODE","CODE_CONSUMER","CODE_SOURCE"]
+
 
 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 s.connect((socket.gethostname(),7000))
 
-option = 2
+option = 1
 
 while True:
 
@@ -43,6 +44,6 @@ while True:
         for x in recived:
             tempData = Data(x[0],x[1])
             print(tempData)
-            
+
         option = 1
         time.sleep(10)
