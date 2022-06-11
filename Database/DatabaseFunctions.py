@@ -35,9 +35,9 @@ def ReadFromTable(code1, code2, database):
             
         if(x[1] != data1[1]):
             data2 = x
-            break
+            return data1,data2
     
-    return data1,data2
+
 
 def ReadHistorical(histociralValue,database):
 

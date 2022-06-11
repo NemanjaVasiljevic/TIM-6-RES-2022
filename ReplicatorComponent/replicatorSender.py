@@ -24,18 +24,21 @@ while True:
     
     data = conn.recv(4096)
     data_variable = pickle.loads(data)
-    print("Recieved from Writer:")
+    
     if(data_variable.request == "WriteRequest"): 
-        print(F"{data_variable.request,data_variable.data.value, data_variable.data.code}")
-        # Pickle the object and send it to ReplicatorReciever
         data_string = pickle.dumps(data_variable)
         replicatorSocketSender.send(data_string)
-        print("Uspesno poslao WriteRequest i podatke uz njega replikatoru")
+        print("Uspesno poslao WriteRequest i podatke uz njega replikatorReciveru")
 
     elif(data_variable.request == "ReadTable"):
         data_string = pickle.dumps(data_variable)
         replicatorSocketSender.send(data_string)
         print("Uspesno poslao ReadRequest i podatke uz njega replikatoru")
+
+    elif data_variable.request == "ReadHistorical":
+        print("Dobio read request")
+        data_string = pickle.dumps(data_variable)
+        replicatorSocketSender.send(data_string)
 
 
 conn.close()

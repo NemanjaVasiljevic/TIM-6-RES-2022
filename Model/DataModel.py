@@ -1,9 +1,10 @@
 from ast import Raise
 from msilib.schema import Error
 import sys
+from types import NoneType
 sys.path.append('../')
 import socket,pickle
-from Database.DatabaseFunctions import (AddToTable, ReadFromTable, ReadHistorical,FindLastOne)
+from Database.DatabaseFunctions import (AddToTable, ReadFromTable, ReadHistorical)
 
 
 listCodes = ["CODE_ANALOG","CODE_DIGITAL","CODE_CUSTOM","CODE_LIMITSET","CODE_SINGLENOE","CODE_MULTIPLENODE","CODE_CONSUMER","CODE_SOURCE"]
@@ -65,6 +66,11 @@ class Reader:
 
         
         old = ReadFromTable(new.code,"", self.database)
+        
+        if type(old) is NoneType:
+            print("Prvi prolaz jos nista nema u bazi")
+            return True
+        
         oldData = Data(old[0],old[1])
         difference = float(oldData.value) * 0.02
 

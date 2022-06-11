@@ -86,22 +86,12 @@ while True:
         data_string = pickle.dumps(data_variable)
         readerSocket.send(data_string)
 
-    ''' 
-    SLANJE LISTE PODATAKA
-
-    historicalCollection.append(data_variable)
-
-    count = count + 1
-
-    if count == 10:
-        print("Data Sent to Reader component...")
-        print(historicalCollection)
-        data_string = pickle.dumps(historicalCollection)
+    elif data_variable.request == "ReadHistorical":
+        print("Dobio read request")
+        data_string = pickle.dumps(data_variable)
         readerSocket.send(data_string)
-        historicalCollection.clear()
-        count = 0
-    
-    '''
+
+
 client.close()
 
 

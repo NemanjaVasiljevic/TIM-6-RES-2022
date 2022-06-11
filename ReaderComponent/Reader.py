@@ -89,7 +89,35 @@ while True:
         dataRead2 = Data(dataRead2[0],dataRead2[1])
         print(F"{dataRead1}\n{dataRead2}")
 
+        result = [dataRead1,dataRead2]
+
+        s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        s.connect((socket.gethostname(),4321))
+        result = pickle.dumps(result)
+        s.send(result)
+        s.close()
+
 
     elif recived.request == "ReadHistorical":
-        #result = r1.ReadHistory(historicalValue)
-        print("")
+
+        print("Usao u ReadHistorical request")
+
+        if recived.data.code == "CODE_ANALOG" or recived.data.code == "CODE_DIGITAL" :
+                result = r1.ReadHistory(recived.data)
+               
+        elif recived.data.code ==  "CODE_CUSTOM" or recived.data.code == "CODE_LIMITSET":
+                result = r2.ReadHistory(recived.data)
+
+        elif recived.data.code == "CODE_SINGLENOE" or recived.data.code == "CODE_MULTIPLENODE":
+                result = r3.ReadHistory(recived.data)
+
+        elif recived.data.code == "CODE_CUSTOMER" or recived.data.code == "CODE_CONSUMER":
+                result = r4.ReadHistory(recived.data)
+
+        #Slanje konzoli
+        s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        s.connect((socket.gethostname(),1234))
+        result = pickle.dumps(result)
+        s.send(result)
+        s.close()
+        
