@@ -14,3 +14,5 @@ def logWriter(dogadjaj, componentName):
         pass
 
 #logWriter('Uradio sam nesto ne znam sta')
+
+logWriter("Uradio sam nesto ne znam sta", "READER")
