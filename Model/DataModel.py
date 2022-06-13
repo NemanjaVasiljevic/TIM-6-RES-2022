@@ -1,9 +1,8 @@
-from ast import Raise
-from msilib.schema import Error
+from asyncio.windows_events import NULL
 import sys
-from types import NoneType
 sys.path.append('../')
-import socket,pickle
+from msilib.schema import Error
+from mysqlx import DatabaseError
 from Database.DatabaseFunctions import (AddToTable, ReadFromTable, ReadHistorical)
 
 
@@ -38,7 +37,7 @@ class Reader:
     def WriteData(self,data):
             try:
                 AddToTable(data.value, data.code, self.database)
-            except:
+            except DatabaseError:
                 return F"Whoops. Something went wrong with writting in base!"
 
 
@@ -65,9 +64,14 @@ class Reader:
             return True
 
         
-        old = ReadFromTable(new.code,"", self.database)
+        try:
+            old = ReadFromTable(new.code,"", self.database)
         
-        if type(old) is NoneType:
+        except:
+            return DatabaseError
+
+            
+        if type(old) is NULL:
             print("Prvi prolaz jos nista nema u bazi")
             return True
         
@@ -90,18 +94,16 @@ class CollectionDescription:
         def __init__(self,historicalCollection,code):
             if code ==listCodes[0] or code == listCodes[1] :
                 self.dataSet = 1
-                #print("Usao u dataset1")
+
             elif code ==  listCodes[2] or code == listCodes[3]:
                 self.dataSet = 2
-                #print("Usao u dataset2")
 
             elif code == listCodes[4] or code == listCodes[5]:
                 self.dataSet = 3
-                #print("Usao u dataset3")
 
             elif code ==listCodes[6] or code == listCodes[7]:
                 self.dataSet = 4
-                #print("Usao u dataset4")
+
             else:
                 self.dataSet = 0
 
