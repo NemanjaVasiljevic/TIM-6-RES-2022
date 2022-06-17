@@ -6,7 +6,7 @@ from datetime import datetime
 db = mysql.connector.connect(
     host = "127.0.0.1",
     user = "root",
-    passwd = "1969",
+    passwd = "1234",
     database = "readerDB"
 )
 myCursor = db.cursor(buffered=True)

@@ -1,5 +1,6 @@
 from asyncio.windows_events import NULL
 import sys
+from types import NoneType
 sys.path.append('../')
 from msilib.schema import Error
 from mysqlx import DatabaseError
@@ -41,10 +42,10 @@ class Reader:
                 return F"Whoops. Something went wrong with writting in base!"
 
 
-    def ReadData(self,code1, code2):
+    def ReadData(self,code):
         try:
-            data1, data2 = ReadFromTable(code1,code2, self.database)
-            return data1, data2
+            data = ReadFromTable(code,"", self.database)
+            return data
         except:
             return Error
 
@@ -71,7 +72,7 @@ class Reader:
             return DatabaseError
 
             
-        if type(old) is NULL:
+        if type(old) is NoneType:
             print("Prvi prolaz jos nista nema u bazi")
             return True
         

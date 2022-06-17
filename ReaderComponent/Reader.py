@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../')
 import socket,pickle,time
-#from Database.CreateTables import CreateTables
+#from Database.CreateTables import CreateTables,CreateDatabase
 from Model.DataModel import CollectionDescription, Data,Reader,Request,HistoricalValue
 
 
@@ -84,15 +84,41 @@ while True:
 
 
     elif recived.request == "ReadTable":
-        dataRead1, dataRead2 = r4.ReadData("CODE_CONSUMER", "CODE_SOURCE")
-        dataRead1 = Data(dataRead1[0],dataRead1[1])
-        dataRead2 = Data(dataRead2[0],dataRead2[1])
+        dataRead2=recived.data.code
+        dataRead1=recived.data.value
+
+        if dataRead1 == "CODE_ANALOG" or dataRead1 == "CODE_DIGITAL" :
+                result1 = r1.ReadData(dataRead1)
+               
+        elif dataRead1 ==  "CODE_CUSTOM" or dataRead1 == "CODE_LIMITSET":
+                result1 = r2.ReadData(dataRead1)
+
+        elif dataRead1 == "CODE_SINGLENOE" or dataRead1 == "CODE_MULTIPLENODE":
+                result1 = r3.ReadData(dataRead1)
+
+        elif dataRead1 == "CODE_CUSTOMER" or dataRead1 == "CODE_CONSUMER":
+                result1 = r4.ReadData(dataRead1)
+
+        if dataRead2 == "CODE_ANALOG" or dataRead2 == "CODE_DIGITAL" :
+                result2 = r1.ReadData(dataRead2)
+               
+        elif dataRead2 ==  "CODE_CUSTOM" or dataRead2 == "CODE_LIMITSET":
+                result2 = r2.ReadData(dataRead2)
+
+        elif dataRead2 == "CODE_SINGLENOE" or dataRead2 == "CODE_MULTIPLENODE":
+                result2 = r3.ReadData(dataRead2)
+
+        elif dataRead2 == "CODE_CUSTOMER" or dataRead2 == "CODE_CONSUMER":
+                result2 = r4.ReadData(dataRead2)
+
+        dataRead1 = Data(result1[0],result1[1])
+        dataRead2 = Data(result2[0],result2[1])
         print(F"{dataRead1}\n{dataRead2}")
 
         result = [dataRead1,dataRead2]
 
         s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-        s.connect((socket.gethostname(),4321))
+        s.connect((socket.gethostname(),1234))
         result = pickle.dumps(result)
         s.send(result)
         s.close()
