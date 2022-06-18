@@ -9,3 +9,4 @@ db = mysql.connector.connect(
 myCursor = db.cursor()
 def CreateDatabase():
     myCursor.execute("CREATE DATABASE readerDB")
+

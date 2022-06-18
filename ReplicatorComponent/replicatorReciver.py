@@ -2,23 +2,8 @@ import sys
 sys.path.append('../')
 import socket,pickle,time,random
 from Model.DataModel import Data,CollectionDescription, DeltaCD
+from Logger.Logger import logWriter
 
-
-
-
-#1.	CODE_ANALOG
-#2.	CODE_DIGITAL
-#3.	CODE_CUSTOM
-#4.	CODE_LIMITSET
-#5.	CODE_SINGLENOE
-#6.	CODE_MULTIPLENODE
-#7.	CODE_CONSUMER
-#8.	CODE_SOURCE
-
-
-#listNames = ["CODE_ANALOG","CODE_DIGITAL","CODE_CUSTOM","CODE_LIMITSET","CODE_SINGLENOE","CODE_MULTIPLENODE","CODE_CONSUMER","CODE_SOURCE"]
-
-# Create a socket connection.
 #Socket sa prosledijivanje podataka Reader komponenti
 readerSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 readerSocket.connect((socket.gethostname(), 8000))
@@ -52,12 +37,12 @@ while True:
 
         print("Recieved from ReplicatorSender:")
         print(f"Code : {data_variable.data.code}   Value: {data_variable.data.value}")
+        logWriter(f"Primio sadrzaj od REPLICATOR SENDER ({data_variable.data})","REPLICATOR RECIVER")
 
         #pakovanje u cd klasu i slanje reader-u
         historicalCollection.append(Data(data_variable.data.value, data_variable.data.code))
         cd = CollectionDescription(historicalCollection,data_variable.data.code)
 
-        print(F"CD izgleda ovako: {cd.dataSet} {cd.historicalCollection[-1]}")
 
         if data_variable.data.code in codes:
           UPDATE.append(cd)
@@ -67,8 +52,6 @@ while True:
         count = len(ADD) + len(UPDATE)
 
         if(count == 10):
-            #print("Data Sent to Reader component...")
-            #print(f"CODE : {data_variable.code}   DATASET : {cd.dataSet}")
             deltaCD = DeltaCD(ADD,UPDATE)
 
             data_variable.data = deltaCD.ADD + deltaCD.UPDATE
@@ -92,7 +75,6 @@ while True:
         readerSocket.send(data_string)
 
 
-client.close()
 
 
      

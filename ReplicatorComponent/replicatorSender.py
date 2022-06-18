@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../')
 import socket,pickle,threading
-from Model.DataModel import Data, Request
+from Logger.Logger import logWriter
 
 class ClientThread(threading.Thread):
     def __init__(self,clientAddress,clientsocket):
@@ -17,20 +17,18 @@ class ClientThread(threading.Thread):
             if(data_variable.request == "WriteRequest"): 
                 data_string = pickle.dumps(data_variable)
                 replicatorSocketSender.send(data_string)
-                print("Uspesno poslao WriteRequest i podatke uz njega replikatorReciveru")
+                logWriter(f"Primio od WRITER ({data_variable.data}) saljem na REPLICATOR RECIVER","REPLICATOR SENDER")
 
             elif(data_variable.request == "ReadTable"):
                 data_string = pickle.dumps(data_variable)
                 replicatorSocketSender.send(data_string)
-                print("Uspesno poslao ReadRequest i podatke uz njega replikatoru")
+                logWriter(f"Primio od WRITER (ReadTable Request) saljem na REPLICATOR RECIVER","REPLICATOR SENDER")
 
             elif data_variable.request == "ReadHistorical":
                 print("Dobio read request")
                 data_string = pickle.dumps(data_variable)
                 replicatorSocketSender.send(data_string)
-
-
-#server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+                logWriter(f"Primio od WRITER (ReadHistorical Request) saljem na REPLICATOR RECIVER","REPLICATOR SENDER")
 
 
 
@@ -44,8 +42,6 @@ writerSocket.bind((socket.gethostname(), 7000))
 replicatorSocketSender= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 replicatorSocketSender.connect((socket.gethostname(),10100))
 
-print("Waiting for the Writer to send data...")
-
 
 while True:
 
@@ -55,4 +51,3 @@ while True:
     newThread = ClientThread(addr,conn)
     newThread.start()
 
-conn.close()
