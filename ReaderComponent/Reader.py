@@ -3,23 +3,13 @@ sys.path.append('../')
 import socket,pickle,time
 #from Database.CreateTables import CreateTables,CreateDatabase
 from Model.DataModel import CollectionDescription, Data,Reader,Request,HistoricalValue
-
+from Logger.Logger import logWriter
 
 ##### ovo se radi samo prvi put prilikom pokretanja posle samo zakomenterises
 #CreateDatabase()
 #CreateTables()
 #############################################################################
 
-'''
-r1 = Reader("dataset1")
-r2 = Reader("dataset2")
-r3 = Reader("dataset3")
-r4 = Reader("dataset4")
-
-data = Data(369,"CODE_ANALOG")
-if r1.CalculateDifference(data):
-    r1.WriteData(data)
-'''
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((socket.gethostname(),8000))
 s.listen(1)
@@ -49,34 +39,34 @@ while True:
 
             if dataSet == 1:
                 if r1.CalculateDifference(data):
-                    print(f"Added to table {r1.database} => DATA : {data.code}   Value: {data.value}")
+                    logWriter(f"Added to table {r1.database} => DATA : {data.code}   Value: {data.value}","READER")
                     r1.WriteData(data)
                 else:
-                    print("Razlika je manja od 2% nece se upisati u bazu")
+                    logWriter("Razlika je manja od 2% nece se upisati u bazu","READER")
 
 
             elif dataSet == 2:               
                 if r2.CalculateDifference(data):
-                    print(f"Added to table {r2.database} => DATA : {data.code}   Value: {data.value}")
+                    logWriter(f"Added to table {r2.database} => DATA : {data.code}   Value: {data.value}","READER")
                     r2.WriteData(data)
                 else:
-                    print("Razlika je manja od 2% nece se upisati u bazu")
+                    logWriter("Razlika je manja od 2% nece se upisati u bazu","READER")
                 
 
             elif dataSet == 3:             
                 if r3.CalculateDifference(data):
-                    print(f"Added to table {r3.database} => DATA : {data.code}   Value: {data.value}")
+                    logWriter(f"Added to table {r3.database} => DATA : {data.code}   Value: {data.value}","READER")
                     r3.WriteData(data)
                 else:
-                    print("Razlika je manja od 2% nece se upisati u bazu")
+                    logWriter("Razlika je manja od 2% nece se upisati u bazu","READER")
 
 
             elif dataSet == 4:               
                 if r4.CalculateDifference(data):
-                    print(f"Added to table {r4.database} => DATA : {data.code}   Value: {data.value}")
+                    logWriter(f"Added to table {r4.database} => DATA : {data.code}   Value: {data.value}","READER")
                     r4.WriteData(data)
                 else:
-                    print("Razlika je manja od 2% nece se upisati u bazu")
+                    logWriter("Razlika je manja od 2% nece se upisati u bazu","READER")
 
 
             counter = counter - 1 
@@ -113,7 +103,8 @@ while True:
 
         dataRead1 = Data(result1[0],result1[1])
         dataRead2 = Data(result2[0],result2[1])
-        print(F"{dataRead1}\n{dataRead2}")
+        logWriter(f"Read from database => DATA : {dataRead1.code}   Value: {dataRead1.value}","READER")
+        logWriter(f"Read from database => DATA : {dataRead2.code}   Value: {dataRead2.value}","READER")
 
         result = [dataRead1,dataRead2]
 
@@ -121,12 +112,9 @@ while True:
         s.connect((socket.gethostname(),1234))
         result = pickle.dumps(result)
         s.send(result)
-        s.close()
 
 
     elif recived.request == "ReadHistorical":
-
-        print("Usao u ReadHistorical request")
 
         if recived.data.code == "CODE_ANALOG" or recived.data.code == "CODE_DIGITAL" :
                 result = r1.ReadHistory(recived.data)
@@ -145,5 +133,4 @@ while True:
         s.connect((socket.gethostname(),1234))
         result = pickle.dumps(result)
         s.send(result)
-        s.close()
         

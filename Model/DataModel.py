@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 import sys
 from types import NoneType
 sys.path.append('../')
@@ -47,7 +46,7 @@ class Reader:
             data = ReadFromTable(code,"", self.database)
             return data
         except:
-            return Error
+            return -1
 
 
     def ReadHistory(self,historicalValue):
@@ -56,7 +55,7 @@ class Reader:
             return retVal
 
         except:
-            return print(F"Greska u ReadHistory")
+            return -1
 
         
     def CalculateDifference(self,new):
@@ -69,7 +68,7 @@ class Reader:
             old = ReadFromTable(new.code,"", self.database)
         
         except:
-            return DatabaseError
+            return -1
 
             
         if type(old) is NoneType:
