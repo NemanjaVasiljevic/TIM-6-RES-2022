@@ -1,5 +1,4 @@
 import sys
-from types import NoneType
 sys.path.append('../')
 from msilib.schema import Error
 from mysqlx import DatabaseError
@@ -71,7 +70,7 @@ class Reader:
             return -1
 
             
-        if type(old) is NoneType:
+        if type(old) is None:
             print("Prvi prolaz jos nista nema u bazi")
             return True
         

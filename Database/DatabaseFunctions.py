@@ -18,9 +18,9 @@ def AddToTable(value, code, database):
     try:
         myCursor.execute(f"INSERT INTO {database} (value, code, timeStamp) VALUES (%s, %s, %s)", (value,code,now))
         db.commit()
-        return 0;
+        return 0
     except:
-        return -1;
+        return -1
 
 def ReadFromTable(code1, code2, database):
 
@@ -45,12 +45,15 @@ def ReadFromTable(code1, code2, database):
 
 def ReadHistorical(histociralValue,database):
 
-    myCursor.execute(F"SELECT * FROM {database} WHERE code = '{histociralValue.code}' and (timeStamp >= '{histociralValue.fromTime}' and timeStamp <= '{histociralValue.toTime}')")
+    try:
+        myCursor.execute(F"SELECT * FROM {database} WHERE code = '{histociralValue.code}' and (timeStamp >= '{histociralValue.fromTime}' and timeStamp <= '{histociralValue.toTime}')")
+        retArray = []
 
-    retArray = []
+        for x in myCursor:
+            retArray.append(x)
+        
+        return retArray
+    except:
+        return -1
 
-    for x in myCursor:
-        retArray.append(x)
-    
-    return retArray
         
