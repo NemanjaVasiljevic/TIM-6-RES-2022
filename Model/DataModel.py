@@ -28,66 +28,6 @@ class Data:
 
 #########################################################################################################
 
-class Reader:
-    def __init__(self,database):
-        self.database = database
-
-
-    def WriteData(self,data):
-            try:
-                AddToTable(data.value, data.code, self.database)
-            except DatabaseError:
-                return F"Whoops. Something went wrong with writting in base!"
-
-
-    def ReadData(self,code):
-        try:
-            data = ReadFromTable(code,"", self.database)
-            return data
-        except:
-            return -1
-
-
-    def ReadHistory(self,historicalValue):
-        try:
-            retVal = ReadHistorical(historicalValue,self.database)
-            return retVal
-
-        except:
-            return -1
-
-        
-    def CalculateDifference(self,new):
-        
-        if new.code == "CODE_DIGITAL":
-            return True
-
-        
-        try:
-            old = ReadFromTable(new.code,"", self.database)
-        
-        except:
-            return -1
-
-            
-        if type(old) is None:
-            print("Prvi prolaz jos nista nema u bazi")
-            return True
-        
-        oldData = Data(old[0],old[1])
-        difference = float(oldData.value) * 0.02
-
-        print(F"\nGornja granica: {float(oldData.value) + difference} Donja granica: {float(oldData.value) - difference} Nova vrednost: {new} Stara vrednost: {oldData}\n")
-
-        if(new.value > float(oldData.value) + difference or new.value < float(oldData.value) - difference):
-            return True
-        else:
-            return False
-
-
-#########################################################################################################
-
-
 class CollectionDescription:
     
         def __init__(self,historicalCollection,code):

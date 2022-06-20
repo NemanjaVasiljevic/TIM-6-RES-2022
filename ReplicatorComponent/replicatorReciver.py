@@ -6,7 +6,7 @@ from Logger.Logger import logWriter
 
 #Socket sa prosledijivanje podataka Reader komponenti
 readerSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-readerSocket.connect((socket.gethostname(), 8000))
+readerSocket.connect((socket.gethostname(), 8001))
 
 
 

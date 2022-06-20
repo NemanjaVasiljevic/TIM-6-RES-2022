@@ -1,0 +1,1 @@
+coverage erase && coverage run --source=ReaderComponent -m pytest -v Tests && coverage report -m && coverage xml && coverage html
