@@ -1,40 +1,18 @@
 import sys
 sys.path.append('../')
 import unittest
-from unittest import mock
+from unittest.mock import MagicMock, patch
 from ReaderComponent import Reader
+from Database import DatabaseFunctions
+from Model.DataModel import Data
 
-class TestReader(unittest.TestCase):
-
-    @mock.patch('ReaderComponent.Reader',return_value=1)
-    @mock.patch('ReaderComponent.Reader.Reader')
-    @mock.patch('Model.DataModel.Data')
-    def test_Adding(self,data,database,reader):
-        self.assertEqual(Reader.WriteData(data,database),1)
-        self.assertEqual(Reader.WriteData("",database),-1)
-        
-
-
-    @mock.patch('ReaderComponent.Reader.ReadData', return_value=1)
-    @mock.patch('ReaderComponent.Reader.Reader')
-    def test_Reading(self,database,readData):
-        self.assertEqual(Reader.ReadData("CODE_ANALOG",database),1)
-        
-            
-
-    @mock.patch('ReaderComponent.Reader.ReadHistory',return_value=1)  
-    @mock.patch('ReaderComponent.Reader.Reader')
-    @mock.patch('Model.DataModel.HistoricalValue')
-    def test_ReadingHistorical(self,HistoricalValue,database,readHistory):
-        self.assertEqual(Reader.ReadHistory(HistoricalValue,database),1)
-        
- 
-         
-    @mock.patch('ReaderComponent.Reader.CalculateDifference',return_value=1)
-    @mock.patch('ReaderComponent.Reader.Reader')
-    @mock.patch('Model.DataModel.Data')
-    def test_CalcualtingDifference(self,data,database,calculateDifference):
-        self.assertEqual(Reader.CalculateDifference(data,database),1)
+class TestDatabase(unittest.TestCase):
+    
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    def test_upis(self, db_mock):
+        test_data = Data(1,"CODE_ANALOG")
+        db_mock = DatabaseFunctions.ConnectDatabase()
+        self.assertEqual(DatabaseFunctions.AddToTable(test_data.value,test_data.code,"dataset1",db_mock),None)
         
      
 if __name__ == '__main__':

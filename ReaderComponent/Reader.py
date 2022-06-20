@@ -1,3 +1,4 @@
+from distutils.log import error
 import sys
 from mysqlx import DatabaseError
 sys.path.append('../')
@@ -13,46 +14,37 @@ from Database.DatabaseFunctions import *
 #############################################################################
 
 ###########################################################
-class Reader:
-    def __init__(self,database):
-        self.database = database
+def WriteData(data,database,db):
+        AddToTable(data.value, data.code, database,db)
 
-def WriteData(data,database):
+def ReadData(code,database,db):
         try:
-                AddToTable(data.value, data.code, database)
-                return 1
-        except:
-                return -1
-
-
-def ReadData(code,database):
-        try:
-                data = ReadFromTable(code,"", database)
+                data = ReadFromTable(code,"", database,db)
                 return data
-        except:
-                return -1
+        except DatabaseError:
+                return DatabaseError
 
 
-def ReadHistory(historicalValue,database):
+def ReadHistory(historicalValue,database,db):
         try:
-                retVal = ReadHistorical(historicalValue,database)
+                retVal = ReadHistorical(historicalValue,database,db)
                 return retVal
 
-        except:
-                return -1
+        except DatabaseError:
+                return DatabaseError
 
 
-def CalculateDifference(new,database):
+def CalculateDifference(new,database,db):
 
         if new.code == "CODE_DIGITAL":
                 return True
 
 
         try:
-                old = ReadFromTable(new.code,"", database)
+                old = ReadFromTable(new.code,"", database,db)
 
-        except:
-                return -1
+        except DatabaseError:
+                return DatabaseError
 
                 
         if type(old) is None:
@@ -68,133 +60,152 @@ def CalculateDifference(new,database):
                 return True
         else:
                 return False
+        
+def SocketConnect():
+        try:
+                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                s.bind((socket.gethostname(),9999))
+                s.listen(1)
+                print("Waiting for connection...")
+
+                replicatorSocket, address = s.accept()
+                print(f"Connection established from address {address}")
+                
+                return replicatorSocket
+        except socket.error:
+                exit()
+                
+def ReciveData(socket):
+        try:
+                msg = socket.recv(4098)
+                recived = pickle.loads(msg)
+                return recived
+        except EOFError:
+                return None
+        except ConnectionAbortedError:
+                return None
+
+def WriteInDatabase(CDArray,db):
+        counter = 10
+
+        for x in CDArray:
+
+                dataSet = x.dataSet
+                data = x.historicalCollection[-counter]
+
+                if dataSet == 1:
+                        if CalculateDifference(data,"dataset1",db):
+                                logWriter(f"Added to table dataset1 => DATA : {data.code}   Value: {data.value}","READER")
+                                WriteData(data,"dataset1",db)
+                        else:
+                                logWriter("Razlika je manja od 2% nece se upisati u bazu","READER")
+
+
+                elif dataSet == 2:               
+                        if CalculateDifference(data,"dataset2",db):
+                                logWriter(f"Added to table dataset2 => DATA : {data.code}   Value: {data.value}","READER")
+                                WriteData(data,"dataset2",db)
+                        else:
+                                logWriter("Razlika je manja od 2% nece se upisati u bazu","READER")
+                        
+
+                elif dataSet == 3:             
+                        if CalculateDifference(data,"dataset3",db):
+                                logWriter(f"Added to table dataset3 => DATA : {data.code}   Value: {data.value}","READER")
+                                WriteData(data,"dataset3",db)
+                        else:
+                                logWriter("Razlika je manja od 2% nece se upisati u bazu","READER")
+
+
+                elif dataSet == 4:               
+                        if CalculateDifference(data,"dataset4",db):
+                                logWriter(f"Added to table dataset4 => DATA : {data.code}   Value: {data.value}","READER")
+                                WriteData(data,"dataset4",db)
+                        else:
+                                logWriter("Razlika je manja od 2% nece se upisati u bazu","READER")
+
+
+                counter = counter - 1 
+
+def ReadLastValues(recived,db):
+        
+        dataRead2=recived.data.code
+        dataRead1=recived.data.value
+
+        if dataRead1 == "CODE_ANALOG" or dataRead1 == "CODE_DIGITAL" :
+                result1 = ReadData(dataRead1,"dataset1",db)
+        
+        elif dataRead1 ==  "CODE_CUSTOM" or dataRead1 == "CODE_LIMITSET":
+                result1 = ReadData(dataRead1,"dataset2",db)
+
+        elif dataRead1 == "CODE_SINGLENOE" or dataRead1 == "CODE_MULTIPLENODE":
+                result1 = ReadData(dataRead1,"dataset3",db)
+
+        elif dataRead1 == "CODE_CUSTOMER" or dataRead1 == "CODE_CONSUMER":
+                result1 = ReadData(dataRead1,"dataset4",db)
+
+        if dataRead2 == "CODE_ANALOG" or dataRead2 == "CODE_DIGITAL" :
+                result2 = ReadData(dataRead2,"dataset1",db)
+        
+        elif dataRead2 ==  "CODE_CUSTOM" or dataRead2 == "CODE_LIMITSET":
+                result2 = ReadData(dataRead2,"dataset2",db)
+
+        elif dataRead2 == "CODE_SINGLENOE" or dataRead2 == "CODE_MULTIPLENODE":
+                result2 = ReadData(dataRead2,"dataset3",db)
+
+        elif dataRead2 == "CODE_CUSTOMER" or dataRead2 == "CODE_CONSUMER":
+                result2 = ReadData(dataRead2,"dataset4",db)
+
+        dataRead1 = Data(result1[0],result1[1])
+        dataRead2 = Data(result2[0],result2[1])
+        logWriter(f"Read from database => DATA : {dataRead1.code}   Value: {dataRead1.value}","READER")
+        logWriter(f"Read from database => DATA : {dataRead2.code}   Value: {dataRead2.value}","READER")
+
+        result = [dataRead1,dataRead2]
+        
+        # vracanje rezultata klijentu
+        s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        s.connect((socket.gethostname(),1234))
+        result = pickle.dumps(result)
+        s.send(result)
+        
+def ReadFromTableUsingTimeStamp(recived,db):
+        if recived.data.code == "CODE_ANALOG" or recived.data.code == "CODE_DIGITAL" :
+                result = ReadHistory(recived.data,"dataset1",db)
+        
+        elif recived.data.code ==  "CODE_CUSTOM" or recived.data.code == "CODE_LIMITSET":
+                result = ReadHistory(recived.data,"dataset2",db)
+
+        elif recived.data.code == "CODE_SINGLENOE" or recived.data.code == "CODE_MULTIPLENODE":
+                result = ReadHistory(recived.data,"dataset3",db)
+
+        elif recived.data.code == "CODE_CUSTOMER" or recived.data.code == "CODE_CONSUMER":
+                result = ReadHistory(recived.data,"dataset4",db)
+
+        #Slanje konzoli
+        s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        s.connect((socket.gethostname(),1234))
+        result = pickle.dumps(result)
+        s.send(result)
 ##################################################
 
-
 def main():
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.bind((socket.gethostname(),8001))
-        s.listen(1)
-        print("Waiting for connection...")
 
-        replicatorSocket, address = s.accept()
-        print(f"Connection established from address {address}")
-
-        r1 = Reader("dataset1")
-        r2 = Reader("dataset2")
-        r3 = Reader("dataset3")
-        r4 = Reader("dataset4")
-
+        soket = SocketConnect()
+        recived = ReciveData(soket)
+        db = ConnectDatabase()
         while True:
-                msg = replicatorSocket.recv(4098)
-                recived = pickle.loads(msg)
 
                 if recived.request == "WriteRequest":
-                        CDArray = recived.data
+                        WriteInDatabase(recived.data,db)
                         
-                        counter = 10
-
-                        for x in CDArray:
-
-                                dataSet = x.dataSet
-                                data = x.historicalCollection[-counter]
-
-                                if dataSet == 1:
-                                        if CalculateDifference(data,r1.database):
-                                                logWriter(f"Added to table {r1.database} => DATA : {data.code}   Value: {data.value}","READER")
-                                                WriteData(data,r1.database)
-                                        else:
-                                                logWriter("Razlika je manja od 2% nece se upisati u bazu","READER")
-
-
-                                elif dataSet == 2:               
-                                        if r2.CalculateDifference(data,r2.database):
-                                                logWriter(f"Added to table {r2.database} => DATA : {data.code}   Value: {data.value}","READER")
-                                                r2.WriteData(data,r2.database)
-                                        else:
-                                                logWriter("Razlika je manja od 2% nece se upisati u bazu","READER")
-                                        
-
-                                elif dataSet == 3:             
-                                        if r3.CalculateDifference(data,r3.database):
-                                                logWriter(f"Added to table {r3.database} => DATA : {data.code}   Value: {data.value}","READER")
-                                                r3.WriteData(data,r3.database)
-                                        else:
-                                                logWriter("Razlika je manja od 2% nece se upisati u bazu","READER")
-
-
-                                elif dataSet == 4:               
-                                        if r4.CalculateDifference(data,r4.database):
-                                                logWriter(f"Added to table {r4.database} => DATA : {data.code}   Value: {data.value}","READER")
-                                                r4.WriteData(data,r4.database)
-                                        else:
-                                                logWriter("Razlika je manja od 2% nece se upisati u bazu","READER")
-
-
-                                counter = counter - 1 
-
-
-
                 elif recived.request == "ReadTable":
-                        dataRead2=recived.data.code
-                        dataRead1=recived.data.value
-
-                        if dataRead1 == "CODE_ANALOG" or dataRead1 == "CODE_DIGITAL" :
-                                result1 = r1.ReadData(dataRead1)
-                        
-                        elif dataRead1 ==  "CODE_CUSTOM" or dataRead1 == "CODE_LIMITSET":
-                                result1 = r2.ReadData(dataRead1)
-
-                        elif dataRead1 == "CODE_SINGLENOE" or dataRead1 == "CODE_MULTIPLENODE":
-                                result1 = r3.ReadData(dataRead1)
-
-                        elif dataRead1 == "CODE_CUSTOMER" or dataRead1 == "CODE_CONSUMER":
-                                result1 = r4.ReadData(dataRead1)
-
-                        if dataRead2 == "CODE_ANALOG" or dataRead2 == "CODE_DIGITAL" :
-                                result2 = r1.ReadData(dataRead2)
-                        
-                        elif dataRead2 ==  "CODE_CUSTOM" or dataRead2 == "CODE_LIMITSET":
-                                result2 = r2.ReadData(dataRead2)
-
-                        elif dataRead2 == "CODE_SINGLENOE" or dataRead2 == "CODE_MULTIPLENODE":
-                                result2 = r3.ReadData(dataRead2)
-
-                        elif dataRead2 == "CODE_CUSTOMER" or dataRead2 == "CODE_CONSUMER":
-                                result2 = r4.ReadData(dataRead2)
-
-                        dataRead1 = Data(result1[0],result1[1])
-                        dataRead2 = Data(result2[0],result2[1])
-                        logWriter(f"Read from database => DATA : {dataRead1.code}   Value: {dataRead1.value}","READER")
-                        logWriter(f"Read from database => DATA : {dataRead2.code}   Value: {dataRead2.value}","READER")
-
-                        result = [dataRead1,dataRead2]
-
-                        s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-                        s.connect((socket.gethostname(),1234))
-                        result = pickle.dumps(result)
-                        s.send(result)
+                        ReadLastValues(recived,db)
 
 
                 elif recived.request == "ReadHistorical":
-
-                        if recived.data.code == "CODE_ANALOG" or recived.data.code == "CODE_DIGITAL" :
-                                result = r1.ReadHistory(recived.data)
+                        ReadFromTableUsingTimeStamp(recived,db)
                         
-                        elif recived.data.code ==  "CODE_CUSTOM" or recived.data.code == "CODE_LIMITSET":
-                                result = r2.ReadHistory(recived.data)
-
-                        elif recived.data.code == "CODE_SINGLENOE" or recived.data.code == "CODE_MULTIPLENODE":
-                                result = r3.ReadHistory(recived.data)
-
-                        elif recived.data.code == "CODE_CUSTOMER" or recived.data.code == "CODE_CONSUMER":
-                                result = r4.ReadHistory(recived.data)
-
-                        #Slanje konzoli
-                        s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-                        s.connect((socket.gethostname(),1234))
-                        result = pickle.dumps(result)
-                        s.send(result)
         
 if __name__ == '__main__':
         main()

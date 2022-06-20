@@ -6,7 +6,7 @@ from Logger.Logger import logWriter
 
 #Socket sa prosledijivanje podataka Reader komponenti
 readerSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-readerSocket.connect((socket.gethostname(), 8001))
+readerSocket.connect((socket.gethostname(), 9999))
 
 
 
@@ -34,9 +34,6 @@ while True:
     data_variable = pickle.loads(data)  # ovde stize podatak tipa ("WriteRequest, data")  data: value code
 
     if(data_variable.request == "WriteRequest"):
-
-        print("Recieved from ReplicatorSender:")
-        print(f"Code : {data_variable.data.code}   Value: {data_variable.data.value}")
         logWriter(f"Primio sadrzaj od REPLICATOR SENDER ({data_variable.data})","REPLICATOR RECIVER")
 
         #pakovanje u cd klasu i slanje reader-u
