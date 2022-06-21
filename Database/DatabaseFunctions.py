@@ -23,29 +23,21 @@ def AddToTable(value, code, database,db):
     db.commit()
 
 
-def ReadFromTable(code1, code2, database,db):
+def ReadFromTable(code1, database,db):
 
-    myCursor = db.cursor()
+    myCursor = db.cursor(buffered=True)
     
-    myCursor.execute(F"SELECT * FROM {database} WHERE code in ('{code1}', '{code2}') order by id desc")
-    first = 1
+    myCursor.execute(F"SELECT * FROM {database} WHERE code = '{code1}' order by id desc")
     for x in myCursor:
+        data1 = x
+        return data1
 
-        if(first == 1):
-            data1 = x
-            first = 0
-            if(code2 == ""):
-                return data1
-            
-        if(x[1] != data1[1]):
-            data2 = x
-            return data1,data2
-    
+
 
 
 def ReadHistorical(histociralValue,database,db):
 
-    myCursor = db.cursor
+    myCursor = db.cursor()
     myCursor.execute(F"SELECT * FROM {database} WHERE code = '{histociralValue.code}' and (timeStamp >= '{histociralValue.fromTime}' and timeStamp <= '{histociralValue.toTime}')")
     retArray = []
 

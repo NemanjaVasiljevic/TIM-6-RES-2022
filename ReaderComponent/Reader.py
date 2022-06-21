@@ -19,7 +19,7 @@ def WriteData(data,database,db):
 
 def ReadData(code,database,db):
         try:
-                data = ReadFromTable(code,"", database,db)
+                data = ReadFromTable(code, database,db)
                 return data
         except DatabaseError:
                 return DatabaseError
@@ -36,18 +36,15 @@ def ReadHistory(historicalValue,database,db):
 
 def CalculateDifference(new,database,db):
 
-        if new.code == "CODE_DIGITAL":
-                return True
-
-
         try:
-                old = ReadFromTable(new.code,"", database,db)
+                if new.code == "CODE_DIGITAL":
+                        return True
+        except AttributeError:
+                return -1
 
-        except DatabaseError:
-                return DatabaseError
-
-                
-        if type(old) is None:
+        old = ReadFromTable(new.code, database,db)
+        
+        if old is None:
                 print("Prvi prolaz jos nista nema u bazi")
                 return True
 
@@ -192,10 +189,9 @@ def ReadFromTableUsingTimeStamp(recived,db):
 def main():
 
         soket = SocketConnect()
-        recived = ReciveData(soket)
         db = ConnectDatabase()
         while True:
-
+                recived = ReciveData(soket)
                 if recived.request == "WriteRequest":
                         WriteInDatabase(recived.data,db)
                         
