@@ -19,7 +19,7 @@ while(True):
     if(q1=="1"):
       os.system("start cmd /k python Writer.py")
     elif(q1=="2"):
-      print("nesto")
+      print("ugasilo se")
 
     elif(q1=="3"):
 
@@ -48,8 +48,6 @@ while(True):
             tempData = Data(x[0],x[1])
             print(tempData)
 
-      time.sleep(10)
-
     elif(q1=="4"):  
       print("Izaberite dva koda koje zelite da procitate iz baze, kodovi su:CODE_ANALOG,CODE_DIGITAL,CODE_CUSTOM,CODE_LIMITSET,CODE_SINGLENOE,CODE_MULTIPLENODE,CODE_CONSUMER,CODE_SOURCE")
       kod1=input()
@@ -71,5 +69,3 @@ while(True):
       recivedMsg = pickle.loads(msg)
 
       print(F"{recivedMsg[0]}\n{recivedMsg[1]}")
-
-      time.sleep(10)

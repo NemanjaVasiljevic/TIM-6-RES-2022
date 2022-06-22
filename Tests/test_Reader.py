@@ -1,42 +1,217 @@
+import pickle
+import socket
 import sys
-
-from mysqlx import DatabaseError
 sys.path.append('../')
 import unittest
+import mysql.connector
 from unittest.mock import MagicMock, patch
 from ReaderComponent import Reader
 from Database import DatabaseFunctions
-from Model.DataModel import Data, HistoricalValue
+from Model import DataModel
+from Logger.Logger import logWriter
 
 class TestReader(unittest.TestCase):
-    
-    @patch('Model.DataModel.Data')
-    @patch('Database.DatabaseFunctions.ConnectDatabase')
-    def test_upis(self, db_mock,test_data):
-        db_mock = DatabaseFunctions.ConnectDatabase()
-        self.assertEqual(Reader.WriteData(test_data,"dataset1",db_mock),None)
-        
-    @patch('Database.DatabaseFunctions.ConnectDatabase')
-    def test_citanje_Poslednjeg(self,db_mock):
-        db_mock = DatabaseFunctions.ConnectDatabase()
-        self.assertEqual(Reader.ReadData("CODE_ANALOG","dataset1",db_mock),None)
-        
-    @patch('Model.DataModel.HistoricalValue')
-    @patch('Database.DatabaseFunctions.ConnectDatabase')
-    def test_citanje_Po_Istoriji(self,db_mock,HC):
-        db_mock = DatabaseFunctions.ConnectDatabase()
-        self.assertEqual(Reader.ReadHistory(HC,"dataset1",db_mock),[])
-        
-    @patch('Model.DataModel.Data')
-    @patch('Database.DatabaseFunctions.ConnectDatabase')
-    def test_Deadbend(self,db_mock,test_data):
-        db_mock = DatabaseFunctions.ConnectDatabase()
-        self.assertEqual(Reader.CalculateDifference(test_data,"dataset1",db_mock),True or False)
-        self.assertEqual(Reader.CalculateDifference(None,"dataset1",db_mock),-1)
-        self.assertEqual(Reader.CalculateDifference(Data(1,"CODE_DIGITAL"),"dataset1",db_mock),True or False)
 
+    @patch('Database.DatabaseFunctions.AddToTable')
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    @patch('Model.DataModel.Data')
+    def test_write(self, mock_add_to_table, mock_konekcija, mock_data):
+        mock_add = MagicMock(DatabaseFunctions.AddToTable)
+        mock_add_to_table.return_value = mock_add
+
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        mock_d = MagicMock(DataModel.Data)
+        mock_data.return_value = mock_d
+
+        self.assertEqual(Reader.WriteData(mock_data, "dataset1", mock_konekcija), None)
         
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    def test_read_data(self, mock_konekcija):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        with patch('Database.DatabaseFunctions.ReadFromTable', return_value=None):
+            self.assertEqual(Reader.ReadData("CODE_DIGITAL", "dataset1", mock_konekcija), None)
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    @patch('Model.DataModel.HistoricalValue')
+    def test_read_history(self, mock_konekcija, mock_historical_value):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        mock_hv = MagicMock(DataModel.HistoricalValue)
+        mock_hv.code="CODE_ANALOG"
+        mock_hv.fromTime ="2022-06-11 21:54:39"
+        mock_hv.toTime="2022-06-17 15:39:19"
+        mock_historical_value.return_value = mock_hv
+
+        with patch('Database.DatabaseFunctions.ReadHistorical', return_value=[]):
+            assert Reader.ReadHistory(mock_historical_value, "dataset1", mock_konekcija) == []
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    @patch('Model.DataModel.Data')
+    def test_calculate_difference_1(self, mock_konekcija, mock_d):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        mock_d = MagicMock(DataModel.Data)
+        mock_d.code = "CODE_DIGITAL"
+        mock_d.value = 1
+        #new = DataModel.Data(1, "CODE_DIGITAL")
         
-     
+        self.assertEqual(Reader.CalculateDifference(mock_d, "dataset1", mock_konekcija), True)
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    @patch('Model.DataModel.Data')
+    def test_calculate_difference_2(self, mock_konekcija, mock_d):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        mock_d = MagicMock(DataModel.Data)
+        mock_d.code = "CODE_ANALOG"
+        mock_d.value = 1
+        #new = DataModel.Data(1, "CODE_DIGITAL")
+
+        with patch('Database.DatabaseFunctions.ReadFromTable', return_value=None):
+            assert Reader.CalculateDifference(mock_d, "dataset1", mock_konekcija) == True
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    @patch('Logger.Logger.logWriter')
+    def test_write_in_database_1(self, mock_konekcija, mock_logger):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+        
+        mock_l = MagicMock(logWriter)
+        mock_logger.return_value = mock_l
+
+        historicalCollection = [DataModel.Data(1, "CODE_ANALOG"), DataModel.Data(2, "CODE_CUSTOM"), DataModel.Data(3, "CODE_SINGLENOE"), DataModel.Data(4, "CODE_CONSUMER")]
+
+        cd1 = DataModel.CollectionDescription(historicalCollection, "CODE_ANALOG")
+        cd2 = DataModel.CollectionDescription(historicalCollection, "CODE_CUSTOM")
+        cd3 = DataModel.CollectionDescription(historicalCollection, "CODE_SINGLENOE")
+        cd4 = DataModel.CollectionDescription(historicalCollection, "CODE_CONSUMER")
+
+        cdArray = [cd1, cd2, cd3, cd4]
+
+        with patch('ReaderComponent.Reader.CalculateDifference', return_value=True):
+            assert Reader.WriteInDatabase(cdArray, mock_konekcija) == None
+
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    @patch('Logger.Logger.logWriter')
+    def test_write_in_databas_2(self, mock_konekcija, mock_logger):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+        
+        mock_l = MagicMock(logWriter)
+        mock_logger.return_value = mock_l
+
+        historicalCollection = [DataModel.Data(1, "CODE_ANALOG"), DataModel.Data(2, "CODE_CUSTOM"), DataModel.Data(3, "CODE_SINGLENOE"), DataModel.Data(4, "CODE_CONSUMER")]
+
+        cd1 = DataModel.CollectionDescription(historicalCollection, "CODE_ANALOG")
+        cd2 = DataModel.CollectionDescription(historicalCollection, "CODE_CUSTOM")
+        cd3 = DataModel.CollectionDescription(historicalCollection, "CODE_SINGLENOE")
+        cd4 = DataModel.CollectionDescription(historicalCollection, "CODE_CONSUMER")
+
+        cdArray = [cd1, cd2, cd3, cd4]
+
+        with patch('ReaderComponent.Reader.CalculateDifference', return_value=False):
+            assert Reader.WriteInDatabase(cdArray, mock_konekcija) == None
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    def test_read_last_values_1(self, mock_konekcija):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        # mock_socket = MagicMock(socket.socket)
+        # mock_socket.recv = MagicMock(return_value = pickle.dumps([]))
+
+        r = DataModel.Request("ReadRequest", DataModel.Data("CODE_ANALOG", "CODE_ANALOG"))
+
+        with patch('ReaderComponent.Reader.ReadData', return_value=DataModel.Data(1, "CODE_ANALOG")):
+            assert Reader.ReadLastValues(r, mock_konekcija) == None
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    def test_read_last_values_2(self, mock_konekcija):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        # mock_socket = MagicMock(socket.socket)
+        # mock_socket.recv = MagicMock(return_value = pickle.dumps([]))
+
+        r = DataModel.Request("ReadRequest", DataModel.Data(1, "CODE_CUSTOM"))
+
+        with patch('ReaderComponent.Reader.ReadData', return_value=DataModel.Data(1, "CODE_CUSTOM")):
+            assert Reader.ReadLastValues(r, mock_konekcija) == None
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    def test_read_last_values_3(self, mock_konekcija):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        # mock_socket = MagicMock(socket.socket)
+        # mock_socket.recv = MagicMock(return_value = pickle.dumps([]))
+
+        r = DataModel.Request("ReadRequest", DataModel.Data(1, "CODE_SINGLENOE"))
+
+        with patch('ReaderComponent.Reader.ReadData', return_value=DataModel.Data(1, "CODE_SINGLENOE")):
+            assert Reader.ReadLastValues(r, mock_konekcija) == None
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    def test_read_last_values_4(self, mock_konekcija):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        # mock_socket = MagicMock(socket.socket)
+        # mock_socket.recv = MagicMock(return_value = pickle.dumps([]))
+
+        r = DataModel.Request("ReadRequest", DataModel.Data(1, "CODE_CUSTOMER"))
+
+        with patch('ReaderComponent.Reader.ReadData', return_value=DataModel.Data(1, "CODE_CUSTOMER")):
+            assert Reader.ReadLastValues(r, mock_konekcija) == None
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    def test_read_from_table_using_timestamp_1(self, mock_konekcija):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        r = DataModel.Request("HistoricalRequest", DataModel.Data(1, "CODE_ANALOG"))
+
+        with patch('ReaderComponent.Reader.ReadHistory', return_value=[]):
+            assert Reader.ReadFromTableUsingTimeStamp(r, mock_konekcija) == None
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    def test_read_from_table_using_timestamp_2(self, mock_konekcija):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        r = DataModel.Request("HistoricalRequest", DataModel.Data(1, "CODE_CUSTOM"))
+
+        with patch('ReaderComponent.Reader.ReadHistory', return_value=[]):
+            assert Reader.ReadFromTableUsingTimeStamp(r, mock_konekcija) == None
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    def test_read_from_table_using_timestamp_3(self, mock_konekcija):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        r = DataModel.Request("HistoricalRequest", DataModel.Data(1, "CODE_SINGLENOE"))
+
+        with patch('ReaderComponent.Reader.ReadHistory', return_value=[]):
+            assert Reader.ReadFromTableUsingTimeStamp(r, mock_konekcija) == None
+
+    @patch('Database.DatabaseFunctions.ConnectDatabase')
+    def test_read_from_table_using_timestamp_4(self, mock_konekcija):
+        mock_kon = MagicMock(mysql.connector.connect)
+        mock_konekcija.return_value = mock_kon
+
+        r = DataModel.Request("HistoricalRequest", DataModel.Data(1, "CODE_CUSTOMER"))
+
+        with patch('ReaderComponent.Reader.ReadHistory', return_value=[]):
+            assert Reader.ReadFromTableUsingTimeStamp(r, mock_konekcija) == None
+
+
 if __name__ == '__main__':
     unittest.main()

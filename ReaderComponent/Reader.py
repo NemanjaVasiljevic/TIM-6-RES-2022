@@ -1,4 +1,3 @@
-from distutils.log import error
 import sys
 from mysqlx import DatabaseError
 sys.path.append('../')
