@@ -16,21 +16,17 @@ from Database.DatabaseFunctions import *
 def WriteData(data,database,db):
         AddToTable(data.value, data.code, database,db)
 
+
 def ReadData(code,database,db):
-        try:
-                data = ReadFromTable(code, database,db)
-                return data
-        except DatabaseError:
-                return DatabaseError
+
+        data = ReadFromTable(code, database,db)
+        return data
 
 
 def ReadHistory(historicalValue,database,db):
-        try:
-                retVal = ReadHistorical(historicalValue,database,db)
-                return retVal
+        retVal = ReadHistorical(historicalValue,database,db)
+        return retVal
 
-        except DatabaseError:
-                return DatabaseError
 
 
 def CalculateDifference(new,database,db):
@@ -80,6 +76,13 @@ def ReciveData(socket):
                 return None
         except ConnectionAbortedError:
                 return None
+
+        
+def SendResponse(result):
+        s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        s.connect((socket.gethostname(),1234))
+        result = pickle.dumps(result)
+        s.send(result)
 
 def WriteInDatabase(CDArray,db):
         counter = 10
@@ -159,11 +162,7 @@ def ReadLastValues(recived,db):
 
         result = [dataRead1,dataRead2]
         
-        # vracanje rezultata klijentu
-        s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-        s.connect((socket.gethostname(),1234))
-        result = pickle.dumps(result)
-        s.send(result)
+        return result
         
 def ReadFromTableUsingTimeStamp(recived,db):
         if recived.data.code == "CODE_ANALOG" or recived.data.code == "CODE_DIGITAL" :
@@ -178,11 +177,7 @@ def ReadFromTableUsingTimeStamp(recived,db):
         elif recived.data.code == "CODE_CUSTOMER" or recived.data.code == "CODE_CONSUMER":
                 result = ReadHistory(recived.data,"dataset4",db)
 
-        #Slanje konzoli
-        s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-        s.connect((socket.gethostname(),1234))
-        result = pickle.dumps(result)
-        s.send(result)
+        return result
 ##################################################
 
 def main():
@@ -195,12 +190,12 @@ def main():
                         WriteInDatabase(recived.data,db)
                         
                 elif recived.request == "ReadTable":
-                        ReadLastValues(recived,db)
-
+                        response = ReadLastValues(recived,db)
+                        SendResponse(response)
 
                 elif recived.request == "ReadHistorical":
-                        ReadFromTableUsingTimeStamp(recived,db)
-                        
+                        response = ReadFromTableUsingTimeStamp(recived,db)
+                        SendResponse(response)
         
 if __name__ == '__main__':
         main()
