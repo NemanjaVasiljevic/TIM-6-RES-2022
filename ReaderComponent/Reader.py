@@ -40,13 +40,10 @@ def CalculateDifference(new,database,db):
         old = ReadFromTable(new.code, database,db)
         
         if old is None:
-                print("Prvi prolaz jos nista nema u bazi")
                 return True
 
         oldData = Data(old[0],old[1])
         difference = float(oldData.value) * 0.02
-
-        print(F"\nGornja granica: {float(oldData.value) + difference} Donja granica: {float(oldData.value) - difference} Nova vrednost: {new} Stara vrednost: {oldData}\n")
 
         if(new.value > float(oldData.value) + difference or new.value < float(oldData.value) - difference):
                 return True
