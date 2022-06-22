@@ -1,1 +1,0 @@
-# TIM-6-RES-2022 README file
