@@ -48,3 +48,556 @@ ljem na REPLICATOR RECIVER
 2022-06-22 12:52:21 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_CONSUMER Value: 35)
 2022-06-22 12:52:21 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_CONSUMER Value: 35) saljem na REPLICATOR RECIVER
 2022-06-22 12:52:21 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 35)
+2022-06-22 16:13:46 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 84)
+2022-06-22 16:13:47 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_CONSUMER Value: 84)
+RECIVER
+2022-06-22 16:13:48 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 85)
+ljem na REPLICATOR RECIVER
+2022-06-22 16:13:50 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 21)
+MITSET Value: 21)
+RECIVER
+2022-06-22 16:13:52 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_LIMITSET Value: 94)
+RECIVER
+2022-06-22 16:13:54 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SINGLENOE Value: 95)
+RECIVER
+2022-06-22 16:13:54 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 95)
+2022-06-22 16:13:56 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_LIMITSET Value: 70)
+RECIVER
+2022-06-22 16:13:58 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_DIGITAL Value: 97) saljem na REPLICATOR RECIVER
+2022-06-22 16:13:58 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_DIGITAL Value: 97)
+2022-06-22 16:14:00 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 19)
+ljem na REPLICATOR RECIVER
+2022-06-22 16:14:02 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 12)
+ljem na REPLICATOR RECIVER
+2022-06-22 16:14:04 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SINGLENOE Value: 16)
+RECIVER
+2022-06-22 16:14:04 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 16)
+2022-06-22 16:14:04 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 84
+2022-06-22 16:14:04 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 85
+2022-06-22 16:14:04 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 21
+2022-06-22 16:14:04 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 94
+2022-06-22 16:14:04 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 95
+2022-06-22 16:14:04 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 70
+2022-06-22 16:14:04 READER :  Added to table dataset1 => DATA : CODE_DIGITAL   Value: 97
+2022-06-22 16:14:04 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 19
+2022-06-22 16:14:04 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 12
+2022-06-22 16:14:04 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 16
+2022-06-22 16:14:06 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 75)
+2022-06-22 16:14:06 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_DIGITAL Value: 75)
+2022-06-22 16:14:06 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_DIGITAL Value: 75) saljem na REPLICATOR RECIVER
+2022-06-22 16:14:07 REPLICATOR SENDER :  Primio od WRITER (ReadTable Request) saljem na REPLICATOR RECIVER
+2022-06-22 16:14:07 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:14:07 READER :  Read from database => DATA : CODE_CUSTOM   Value: 85
+2022-06-22 16:14:08 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_SINGLENOE Value: 79) saljem na REPLICATOR RECIVER
+2022-06-22 16:14:08 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SINGLENOE Value: 79)
+2022-06-22 16:14:08 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 79)
+2022-06-22 16:14:10 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_ANALOG Value: 14) saljem na REPLICATOR RECIVER
+2022-06-22 16:14:10 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 14)
+2022-06-22 16:14:12 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_LIMITSET Value: 86) saljem na REPLICATOR RECIVER
+2022-06-22 16:14:14 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_LIMITSET Value: 37) saljem na REPLICATOR RECIVER
+2022-06-22 16:14:14 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 37)
+2022-06-22 16:14:16 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_DIGITAL Value: 52)
+RECIVER
+2022-06-22 16:14:16 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 52)
+2022-06-22 16:14:18 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_CUSTOM Value: 64) saljem na REPLICATOR RECIVER
+2022-06-22 16:14:20 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 48)
+ljem na REPLICATOR RECIVER
+2022-06-22 16:14:22 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_CUSTOM Value: 78)
+RECIVER
+2022-06-22 16:14:24 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_CUSTOM Value: 20)
+RECIVER
+2022-06-22 16:14:24 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 20)
+2022-06-22 16:14:24 READER :  Added to table dataset1 => DATA : CODE_DIGITAL   Value: 75
+2022-06-22 16:14:24 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 79
+2022-06-22 16:14:24 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 14
+2022-06-22 16:14:24 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 86
+2022-06-22 16:14:25 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 37
+2022-06-22 16:14:25 READER :  Added to table dataset1 => DATA : CODE_DIGITAL   Value: 52
+2022-06-22 16:14:25 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 64
+2022-06-22 16:14:25 READER :  Added to table dataset1 => DATA : CODE_DIGITAL   Value: 48
+2022-06-22 16:14:25 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 78
+2022-06-22 16:14:25 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 20
+2022-06-22 16:40:16 READER :  Read from database => DATA : tuple[1]   Value: tuple[0]
+2022-06-22 16:40:16 READER :  Read from database => DATA : tuple[1]   Value: tuple[0]
+2022-06-22 16:42:17 READER :  Read from database => DATA : tuple[1]   Value: tuple[0]
+2022-06-22 16:42:17 READER :  Read from database => DATA : tuple[1]   Value: tuple[0]
+2022-06-22 16:51:24 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:51:24 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:54:53 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:54:53 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:56:51 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:56:51 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:57:05 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:57:05 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:58:09 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:58:09 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:59:13 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:59:13 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:59:52 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 16:59:52 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:01:02 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:01:02 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:01:39 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:01:39 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:02:10 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:02:10 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:05:12 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:05:12 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:05:12 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:05:12 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:05:12 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:05:12 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:05:12 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:05:12 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:09:37 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:09:37 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:09:37 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:09:37 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:09:37 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:09:37 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:09:37 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:09:37 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:09:37 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:09:37 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:09:37 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:09:37 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:09:37 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:09:37 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:09:37 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:09:37 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:09:37 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:09:37 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:09:37 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:09:37 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:09:37 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:09:37 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:09:37 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:09:37 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:09:37 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:09:37 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:09:37 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:09:37 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:10:33 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:10:33 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:10:33 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:10:33 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:10:33 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:10:33 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:10:33 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:10:33 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:10:33 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:10:33 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:10:33 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:10:33 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:10:33 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:10:33 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:10:33 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:10:33 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:36:35 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:36:35 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:36:35 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:36:35 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:36:35 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:36:35 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:36:35 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:36:35 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:36:35 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:36:35 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:36:35 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:36:35 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:36:35 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:36:35 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:36:35 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:36:35 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:38:09 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:38:09 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:38:09 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:38:09 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:38:09 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:38:09 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:38:09 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:38:09 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:38:11 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:38:11 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:38:11 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:38:11 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:38:11 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:38:11 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:38:11 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:38:11 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:38:52 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:38:52 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:38:52 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:38:52 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:38:52 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:38:52 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:38:52 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:38:52 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:38:52 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:38:52 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:38:52 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:38:52 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:38:52 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:38:52 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:38:52 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:38:52 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:39:28 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:39:28 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:39:28 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:39:28 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:39:28 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:39:28 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:39:28 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:39:28 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:39:28 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:39:28 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:39:28 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:39:28 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:39:28 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:39:28 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:39:28 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:39:28 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:40:44 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:40:44 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:40:44 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:40:44 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:40:45 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:40:45 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:40:45 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:40:45 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:40:45 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:40:45 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:40:45 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:40:45 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:40:45 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:40:45 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:40:45 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:40:45 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:42:27 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:42:27 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:42:27 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:42:27 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:42:27 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:42:27 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:42:27 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:42:27 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:42:27 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:42:27 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:42:27 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:42:27 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:42:27 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:42:27 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:42:27 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:42:27 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:43:17 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:43:17 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:43:17 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:43:17 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:43:17 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:43:17 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:43:17 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:43:17 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:43:17 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:43:17 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:43:17 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:43:17 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:43:17 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:43:17 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:43:17 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:43:17 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:43:49 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:43:49 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:43:49 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:43:49 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:43:49 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:43:49 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:43:49 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:43:49 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:43:49 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:43:49 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:43:49 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:43:49 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:43:49 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:43:49 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:43:49 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:43:49 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:44:03 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:44:03 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:44:03 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:44:03 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:44:03 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:44:03 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:44:03 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:44:03 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:44:03 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:03 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:03 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:03 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:03 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:44:03 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:44:03 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:44:03 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:44:15 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:44:15 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:44:15 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:44:15 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:44:15 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:44:15 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:44:15 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:44:15 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:44:15 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:15 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:15 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:15 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:15 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:44:15 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:44:15 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:44:15 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:44:28 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:44:28 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:44:28 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:44:28 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:44:28 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:44:28 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:44:28 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:44:28 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:44:28 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:28 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:28 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:28 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:28 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:44:28 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:44:28 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:44:28 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:44:57 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:44:57 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:44:57 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:44:57 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:44:57 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:44:57 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:44:57 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:44:57 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:44:57 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:44:57 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:44:57 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:57 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:57 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:57 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:44:57 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:44:57 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:44:57 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:44:57 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:45:42 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:45:42 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:45:42 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:45:42 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:45:42 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:45:42 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:45:42 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:45:42 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:45:42 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:45:42 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:45:42 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:45:42 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:45:42 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:45:42 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:45:42 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:45:42 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:45:42 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:45:42 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:45:55 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:45:55 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:45:55 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:45:55 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:45:55 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:45:55 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:45:55 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:45:55 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:45:55 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:45:55 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:45:55 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:45:55 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:45:55 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:45:55 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:46:18 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:46:18 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:46:18 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:46:18 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:46:18 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:46:18 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:46:18 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:46:18 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:46:18 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:46:18 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:46:18 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:46:18 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:46:18 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:46:18 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:46:18 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:46:18 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 17:49:37 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 26)
+2022-06-22 17:51:38 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 40)
+2022-06-22 17:54:28 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 90)
+2022-06-22 17:54:36 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:54:36 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:54:36 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:54:36 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 17:54:36 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:54:36 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 17:54:36 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:54:36 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 17:54:36 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:54:36 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:54:36 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:54:36 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 17:54:36 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 17:54:36 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 17:54:36 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 17:54:36 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 18:15:17 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 96)
+2022-06-22 18:15:26 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 18:15:26 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 18:15:26 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 18:15:26 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 18:15:26 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 18:15:26 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 18:15:26 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 18:15:26 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 18:15:26 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:15:26 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:15:26 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:15:26 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:15:26 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 18:15:26 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 18:15:26 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 18:15:26 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 18:22:44 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 56)
+2022-06-22 18:22:48 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 18:22:48 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 18:22:48 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 18:22:48 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 18:22:48 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 18:22:48 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 18:22:48 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 18:22:48 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 18:22:48 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:22:48 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:22:48 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:22:48 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:22:48 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 18:22:48 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 18:22:48 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 18:22:48 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 18:27:15 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 18:27:15 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 18:27:15 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 18:27:15 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 18:27:15 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 18:27:15 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 18:27:15 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 18:27:15 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 18:27:15 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:27:15 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:27:15 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:27:15 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:27:15 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 18:27:15 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 18:27:15 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 18:27:15 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 18:27:23 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 60)
+2022-06-22 18:38:14 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 91)
+2022-06-22 18:38:15 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_LIMITSET Value: 91) saljem na REPLICATOR RECIVER
+2022-06-22 18:38:16 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_SOURCE Value: 38) saljem na REPLICATOR RECIVER
+2022-06-22 18:38:18 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 91)
+2022-06-22 18:38:18 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_LIMITSET Value: 91)
+RECIVER
+2022-06-22 18:38:20 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_ANALOG Value: 48) saljem na REPLICATOR RECIVER
+2022-06-22 18:38:20 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 48)
+2022-06-22 18:38:20 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_ANALOG Value: 48)
+2022-06-22 18:38:22 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_ANALOG Value: 56) saljem na REPLICATOR RECIVER
+2022-06-22 18:38:22 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 56)
+2022-06-22 18:38:24 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_SOURCE Value: 74) saljem na REPLICATOR RECIVER
+2022-06-22 18:38:24 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SOURCE Value: 74)
+2022-06-22 18:38:24 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 74)
+2022-06-22 18:38:26 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_SINGLENOE Value: 65) saljem na REPLICATOR RECIVER
+2022-06-22 18:38:26 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SINGLENOE Value: 65)
+2022-06-22 18:38:26 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 65)
+2022-06-22 18:38:28 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_DIGITAL Value: 51)
+RECIVER
+2022-06-22 18:38:30 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_CUSTOM Value: 81)
+RECIVER
+2022-06-22 18:38:32 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_CONSUMER Value: 38)
+RECIVER
+2022-06-22 18:38:32 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 91
+2022-06-22 18:38:32 READER :  Added to table dataset4 => DATA : CODE_SOURCE   Value: 38
+2022-06-22 18:38:32 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 18:38:32 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 48
+2022-06-22 18:38:32 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 56
+2022-06-22 18:38:32 READER :  Added to table dataset4 => DATA : CODE_SOURCE   Value: 74
+2022-06-22 18:38:32 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 65
+2022-06-22 18:38:32 READER :  Added to table dataset1 => DATA : CODE_DIGITAL   Value: 51
+2022-06-22 18:38:32 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 81
+2022-06-22 18:38:32 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 38
+2022-06-22 18:38:34 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SOURCE Value: 75)
+RECIVER
+2022-06-22 18:38:36 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SOURCE Value: 63)
+RECIVER
+2022-06-22 18:38:38 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 85)
+ljem na REPLICATOR RECIVER
+2022-06-22 18:38:40 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_LIMITSET Value: 95) saljem na REPLICATOR RECIVER
+2022-06-22 18:38:42 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_LIMITSET Value: 20) saljem na REPLICATOR RECIVER
+2022-06-22 18:38:42 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 20)
+2022-06-22 18:38:44 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 7)
+2022-06-22 18:39:36 REPLICATOR SENDER :  Primio od WRITER (ReadTable Request) saljem na REPLICATOR RECIVER
+2022-06-22 18:39:36 READER :  Read from database => DATA : CODE_ANALOG   Value: 56
+2022-06-22 18:39:36 READER :  Read from database => DATA : CODE_CUSTOM   Value: 81
+2022-06-22 19:01:16 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 19:01:16 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 19:01:16 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 19:01:16 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 19:01:16 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 19:01:16 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 19:01:16 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 19:01:16 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 19:01:16 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:01:16 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:01:16 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:01:16 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:01:16 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 19:01:16 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 19:01:16 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 19:01:16 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 19:01:23 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 8)
+2022-06-22 19:02:11 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 19:02:11 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 19:02:11 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 19:02:11 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 19:02:11 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 19:02:11 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 19:02:11 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 19:02:11 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 19:02:11 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:02:11 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:02:11 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:02:11 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:02:11 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 19:02:11 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 19:02:11 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 19:02:11 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 19:02:26 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 66)
+2022-06-22 19:02:45 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 19:02:45 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 19:02:45 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 19:02:45 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 19:02:45 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 19:02:45 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 19:02:45 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 19:02:45 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 19:02:45 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:02:45 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:02:45 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:02:45 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:02:45 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 19:02:45 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 19:02:45 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 19:02:45 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4

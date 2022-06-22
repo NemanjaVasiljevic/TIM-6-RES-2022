@@ -2,7 +2,6 @@ import sys
 from mysqlx import DatabaseError
 sys.path.append('../')
 import socket,pickle,time
-#from Database.CreateTables import CreateTables,CreateDatabase
 from Model.DataModel import CollectionDescription, Data,Request,HistoricalValue
 from Logger.Logger import logWriter
 from Database.DatabaseFunctions import *
@@ -20,6 +19,7 @@ def WriteData(data,database,db):
 def ReadData(code,database,db):
 
         data = ReadFromTable(code, database,db)
+        data = Data(data[0],data[1])
         return data
 
 
@@ -133,7 +133,7 @@ def ReadLastValues(recived,db):
 
         if dataRead1 == "CODE_ANALOG" or dataRead1 == "CODE_DIGITAL" :
                 result1 = ReadData(dataRead1,"dataset1",db)
-        
+                
         elif dataRead1 ==  "CODE_CUSTOM" or dataRead1 == "CODE_LIMITSET":
                 result1 = ReadData(dataRead1,"dataset2",db)
 
@@ -155,8 +155,8 @@ def ReadLastValues(recived,db):
         elif dataRead2 == "CODE_CUSTOMER" or dataRead2 == "CODE_CONSUMER":
                 result2 = ReadData(dataRead2,"dataset4",db)
 
-        dataRead1 = Data(result1[0],result1[1])
-        dataRead2 = Data(result2[0],result2[1])
+        dataRead1 = result1
+        dataRead2 = result2
         logWriter(f"Read from database => DATA : {dataRead1.code}   Value: {dataRead1.value}","READER")
         logWriter(f"Read from database => DATA : {dataRead2.code}   Value: {dataRead2.value}","READER")
 

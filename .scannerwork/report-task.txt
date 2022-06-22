@@ -2,5 +2,5 @@ projectKey=RES-PROJEKAT
 serverUrl=http://localhost:9000
 serverVersion=9.5.0.56709
 dashboardUrl=http://localhost:9000/dashboard?id=RES-PROJEKAT
-ceTaskId=AYGIR-pIUHrsfx84bNhB
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYGIR-pIUHrsfx84bNhB
+ceTaskId=AYGMO0yDZpY7ZMk1coG2
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYGMO0yDZpY7ZMk1coG2
