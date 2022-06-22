@@ -601,3 +601,301 @@ ljem na REPLICATOR RECIVER
 2022-06-22 19:02:45 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
 2022-06-22 19:02:45 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
 2022-06-22 19:02:45 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 19:35:00 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 19:35:00 READER :  Read from database => DATA : CODE_ANALOG   Value: 1
+2022-06-22 19:35:00 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 19:35:00 READER :  Read from database => DATA : CODE_CUSTOM   Value: 1
+2022-06-22 19:35:00 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 19:35:00 READER :  Read from database => DATA : CODE_SINGLENOE   Value: 1
+2022-06-22 19:35:00 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 19:35:00 READER :  Read from database => DATA : CODE_CUSTOMER   Value: 1
+2022-06-22 19:35:00 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:35:00 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:35:00 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:35:00 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:35:00 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 1
+2022-06-22 19:35:00 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 19:35:00 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 3
+2022-06-22 19:35:00 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 4
+2022-06-22 19:51:03 REPLICATOR SENDER :  Primio od WRITER (ReadHistorical Request) saljem na REPLICATOR RECIVER
+2022-06-22 19:51:23 REPLICATOR SENDER :  Primio od WRITER (ReadHistorical Request) saljem na REPLICATOR RECIVER
+2022-06-22 19:51:39 REPLICATOR SENDER :  Primio od WRITER (ReadTable Request) saljem na REPLICATOR RECIVER
+2022-06-22 19:51:39 READER :  Read from database => DATA : CODE_DIGITAL   Value: 51
+2022-06-22 19:51:39 READER :  Read from database => DATA : CODE_MULTIPLENODE   Value: 495
+2022-06-22 19:52:07 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SOURCE Value: 20)
+RECIVER
+2022-06-22 19:52:07 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 20)
+2022-06-22 19:52:09 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 64)
+ANALOG Value: 64)
+RECIVER
+2022-06-22 19:52:11 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_MULTIPLENODE Value: 10)
+RECIVER
+2022-06-22 19:52:13 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_CUSTOM Value: 2)
+RECIVER
+2022-06-22 19:52:15 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_LIMITSET Value: 43)
+2022-06-22 19:52:15 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_LIMITSET Value: 43) saljem na REPLICATOR RECIVER
+2022-06-22 19:52:15 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 43)
+2022-06-22 19:52:17 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_CUSTOM Value: 73)
+RECIVER
+2022-06-22 19:52:17 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 73)
+2022-06-22 19:52:19 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_ANALOG Value: 42) saljem na REPLICATOR RECIVER
+2022-06-22 19:52:19 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 42)
+2022-06-22 19:52:19 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_ANALOG Value: 42)
+2022-06-22 19:52:21 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_CUSTOM Value: 73)
+RECIVER
+2022-06-22 19:52:21 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_DIGITAL Value: 62)
+RECIVER
+2022-06-22 19:52:21 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 62)
+2022-06-22 19:52:23 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 38)
+2022-06-22 19:52:23 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SINGLENOE Value: 26)
+RECIVER
+2022-06-22 19:52:23 READER :  Added to table dataset4 => DATA : CODE_SOURCE   Value: 20
+2022-06-22 19:52:23 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 64
+2022-06-22 19:52:23 READER :  Added to table dataset3 => DATA : CODE_MULTIPLENODE   Value: 10
+2022-06-22 19:52:23 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 2
+2022-06-22 19:52:23 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 43
+2022-06-22 19:52:23 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 73
+2022-06-22 19:52:23 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 42
+2022-06-22 19:52:23 READER :  Razlika je manja od 2% nece se upisati u bazu
+2022-06-22 19:52:23 READER :  Added to table dataset1 => DATA : CODE_DIGITAL   Value: 62
+2022-06-22 19:52:23 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 26
+2022-06-22 19:52:25 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 66)
+2022-06-22 19:52:25 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 99)
+NSUMER Value: 99)
+RECIVER
+2022-06-22 19:52:27 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 60)
+2022-06-22 19:52:27 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_ANALOG Value: 35)
+RECIVER
+2022-06-22 19:52:29 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 13)
+2022-06-22 19:52:29 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_SINGLENOE Value: 48) saljem na REPLICATOR RECIVER
+2022-06-22 19:52:29 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 48)
+2022-06-22 19:52:31 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 57)
+2022-06-22 19:52:31 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_CUSTOM Value: 46)
+2022-06-22 19:52:31 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 46)
+2022-06-22 19:52:31 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_CUSTOM Value: 46) saljem na REPLICATOR RECIVER
+2022-06-22 19:52:33 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 55)
+2022-06-22 19:52:33 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 36)
+2022-06-22 19:52:33 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_LIMITSET Value: 36) saljem na REPLICATOR RECIVER
+2022-06-22 19:52:34 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_CONSUMER Value: 9)
+RECIVER
+2022-06-22 19:52:34 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 9)
+2022-06-22 19:52:35 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 22)
+2022-06-22 19:52:35 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SOURCE Value: 94)
+RECIVER
+2022-06-22 19:52:35 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 94)
+2022-06-22 19:52:36 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 40)
+LENODE Value: 40)
+RECIVER
+2022-06-22 19:52:37 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 9)
+2022-06-22 19:52:37 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 45)
+2022-06-22 19:52:38 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 39)
+2022-06-22 19:52:38 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_LIMITSET Value: 39) saljem na REPLICATOR RECIVER
+2022-06-22 19:52:38 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_LIMITSET Value: 39)
+2022-06-22 19:52:39 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 13)
+2022-06-22 19:52:40 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 89)
+2022-06-22 19:52:40 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_MULTIPLENODE Value: 18)
+RECIVER
+2022-06-22 19:52:40 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 18)
+2022-06-22 19:52:40 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 99
+2022-06-22 19:52:40 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 35
+2022-06-22 19:52:40 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 48
+2022-06-22 19:52:40 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 46
+2022-06-22 19:52:40 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 36
+2022-06-22 19:52:40 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 9
+2022-06-22 19:52:40 READER :  Added to table dataset4 => DATA : CODE_SOURCE   Value: 94
+2022-06-22 19:52:40 READER :  Added to table dataset3 => DATA : CODE_MULTIPLENODE   Value: 40
+2022-06-22 19:52:40 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 39
+2022-06-22 19:52:40 READER :  Added to table dataset3 => DATA : CODE_MULTIPLENODE   Value: 18
+2022-06-22 19:52:41 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 44)
+2022-06-22 19:52:42 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 67)
+2022-06-22 19:52:42 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_ANALOG Value: 5)
+RECIVER
+2022-06-22 19:52:42 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 5)
+2022-06-22 19:52:43 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 86)
+2022-06-22 19:52:44 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 5)
+2022-06-22 19:52:44 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_SINGLENOE Value: 77) saljem na REPLICATOR RECIVER
+2022-06-22 19:52:44 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 77)
+2022-06-22 19:52:45 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 83)
+2022-06-22 19:52:46 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 83)
+2022-06-22 19:52:46 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 71)
+MITSET Value: 71)
+RECIVER
+2022-06-22 19:52:47 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 36)
+2022-06-22 19:52:48 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 71)
+2022-06-22 19:52:48 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_MULTIPLENODE Value: 29) saljem na REPLICATOR RECIVER
+2022-06-22 19:52:49 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 60)
+2022-06-22 19:52:50 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 43)
+2022-06-22 19:52:50 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 30)
+ANALOG Value: 30)
+RECIVER
+2022-06-22 19:52:51 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 75)
+2022-06-22 19:52:52 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 20)
+2022-06-22 19:52:52 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 12)
+ljem na REPLICATOR RECIVER
+2022-06-22 19:52:53 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 50)
+2022-06-22 19:52:54 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 53)
+2022-06-22 19:52:54 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 76)
+ljem na REPLICATOR RECIVER
+2022-06-22 19:52:54 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_DIGITAL Value: 76)
+2022-06-22 19:52:55 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 30)
+2022-06-22 19:52:56 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 94)
+2022-06-22 19:52:56 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SOURCE Value: 26)
+RECIVER
+2022-06-22 19:52:56 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 26)
+2022-06-22 19:52:57 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 11)
+2022-06-22 19:52:58 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 38)
+2022-06-22 19:52:58 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_ANALOG Value: 6)
+RECIVER
+2022-06-22 19:52:59 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 97)
+2022-06-22 19:53:00 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 59)
+2022-06-22 19:53:00 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 52)
+ljem na REPLICATOR RECIVER
+2022-06-22 19:53:00 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 5
+2022-06-22 19:53:00 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 77
+2022-06-22 19:53:00 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 71
+2022-06-22 19:53:00 READER :  Added to table dataset3 => DATA : CODE_MULTIPLENODE   Value: 29
+2022-06-22 19:53:00 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 30
+2022-06-22 19:53:00 READER :  Added to table dataset4 => DATA : CODE_SOURCE   Value: 12
+2022-06-22 19:53:00 READER :  Added to table dataset1 => DATA : CODE_DIGITAL   Value: 76
+2022-06-22 19:53:00 READER :  Added to table dataset4 => DATA : CODE_SOURCE   Value: 26
+2022-06-22 19:53:00 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 6
+2022-06-22 19:53:00 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 52
+2022-06-22 19:53:01 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 54)
+2022-06-22 19:53:02 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 62)
+2022-06-22 19:53:02 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_LIMITSET Value: 13) saljem na REPLICATOR RECIVER
+2022-06-22 19:53:02 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 13)
+2022-06-22 19:53:03 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 95)
+2022-06-22 19:53:04 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 60)
+2022-06-22 19:53:04 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 4)
+ljem na REPLICATOR RECIVER
+2022-06-22 19:53:05 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 6)
+2022-06-22 19:53:06 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 24)
+2022-06-22 19:53:06 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 49)
+ljem na REPLICATOR RECIVER
+2022-06-22 19:53:07 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 34)
+2022-06-22 19:53:08 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 23)
+2022-06-22 19:53:08 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 81)
+ljem na REPLICATOR RECIVER
+2022-06-22 19:53:08 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SINGLENOE Value: 81)
+2022-06-22 19:53:09 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 48)
+2022-06-22 19:53:10 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 28)
+2022-06-22 19:53:10 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_CONSUMER Value: 64) saljem na REPLICATOR 2022-06-22 19:53:10 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 64)
+2022-06-22 19:53:11 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 37)
+2022-06-22 19:53:12 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 33)
+2022-06-22 19:53:12 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_ANALOG Value: 68)
+2022-06-22 19:53:12 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_ANALOG Value: 68) saljem na REPLICATOR RECIVER
+2022-06-22 19:53:12 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 68)
+2022-06-22 19:53:13 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 44)
+2022-06-22 19:53:14 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 36)
+2022-06-22 19:53:14 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_CUSTOM Value: 78) saljem na REPLICATOR RECIVER
+2022-06-22 19:53:15 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 9)
+2022-06-22 19:53:16 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 9)
+2022-06-22 19:53:16 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_MULTIPLENODE Value: 28) saljem na REPLICATOR RECIVER
+2022-06-22 19:53:16 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_MULTIPLENODE Value: 28)
+2022-06-22 19:53:17 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 91)
+2022-06-22 19:53:18 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 35)
+2022-06-22 19:53:18 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 46)
+LENODE Value: 46)
+RECIVER
+2022-06-22 19:53:19 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 17)
+2022-06-22 19:53:20 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 16)
+2022-06-22 19:53:20 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 43)
+ljem na REPLICATOR RECIVER
+2022-06-22 19:53:20 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 13
+2022-06-22 19:53:20 READER :  Added to table dataset4 => DATA : CODE_SOURCE   Value: 4
+2022-06-22 19:53:20 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 49
+2022-06-22 19:53:20 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 81
+2022-06-22 19:53:20 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 64
+2022-06-22 19:53:20 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 68
+2022-06-22 19:53:20 READER :  Added to table dataset2 => DATA : CODE_CUSTOM   Value: 78
+2022-06-22 19:53:20 READER :  Added to table dataset3 => DATA : CODE_MULTIPLENODE   Value: 28
+2022-06-22 19:53:20 READER :  Added to table dataset3 => DATA : CODE_MULTIPLENODE   Value: 46
+2022-06-22 19:53:20 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 43
+2022-06-22 19:53:21 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 100)
+2022-06-22 19:53:22 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 82)
+2022-06-22 19:53:22 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_ANALOG Value: 89)
+2022-06-22 19:53:22 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_ANALOG Value: 89) saljem na REPLICATOR RECIVER
+2022-06-22 19:53:22 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 89)
+2022-06-22 19:53:23 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 100)
+2022-06-22 19:53:24 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 18)
+2022-06-22 19:53:24 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_LIMITSET Value: 51) saljem na REPLICATOR RECIVER
+2022-06-22 19:53:24 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_LIMITSET Value: 51)
+2022-06-22 19:53:24 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 51)
+2022-06-22 19:53:25 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 70)
+2022-06-22 19:53:26 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 59)
+2022-06-22 19:53:26 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 81)
+LENODE Value: 81)
+RECIVER
+2022-06-22 19:53:28 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 47)
+2022-06-22 19:53:28 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 89)
+2022-06-22 19:53:28 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_CONSUMER Value: 66) saljem na REPLICATOR RECIVER
+2022-06-22 19:53:28 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 66)
+2022-06-22 19:53:30 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 72)
+2022-06-22 19:53:30 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 92)
+2022-06-22 19:53:30 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_DIGITAL Value: 18)
+RECIVER
+2022-06-22 19:53:32 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 4)
+2022-06-22 19:53:32 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 85)
+2022-06-22 19:53:32 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 35)
+2022-06-22 19:53:32 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_MULTIPLENODE Value: 35)
+RECIVER
+2022-06-22 19:53:34 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 1)
+2022-06-22 19:53:34 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 76)
+2022-06-22 19:53:34 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_CONSUMER Value: 26) saljem na REPLICATOR RECIVER
+2022-06-22 19:53:34 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 26)
+2022-06-22 19:53:36 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 50)
+2022-06-22 19:53:36 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 20)
+2022-06-22 19:53:36 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SINGLENOE Value: 34)
+RECIVER
+2022-06-22 19:53:38 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 99)
+2022-06-22 19:53:38 WRITER :  Writer poslao podatak na upis(Code: CODE_CONSUMER Value: 11)
+2022-06-22 19:53:38 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_MULTIPLENODE Value: 57)
+RECIVER
+2022-06-22 19:53:38 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 57)
+2022-06-22 19:53:40 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 87)
+2022-06-22 19:53:40 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 18)
+2022-06-22 19:53:40 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 48)
+2022-06-22 19:53:40 REPLICATOR SENDER :  Primio od WRITER (Code: CODE_DIGITAL Value: 48) saljem na REPLICATOR RECIVER
+2022-06-22 19:53:40 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_DIGITAL Value: 48)
+2022-06-22 19:53:40 READER :  Added to table dataset1 => DATA : CODE_ANALOG   Value: 89
+2022-06-22 19:53:40 READER :  Added to table dataset2 => DATA : CODE_LIMITSET   Value: 51
+2022-06-22 19:53:40 READER :  Added to table dataset3 => DATA : CODE_MULTIPLENODE   Value: 81
+2022-06-22 19:53:40 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 66
+2022-06-22 19:53:40 READER :  Added to table dataset1 => DATA : CODE_DIGITAL   Value: 18
+2022-06-22 19:53:40 READER :  Added to table dataset3 => DATA : CODE_MULTIPLENODE   Value: 35
+2022-06-22 19:53:40 READER :  Added to table dataset4 => DATA : CODE_CONSUMER   Value: 26
+2022-06-22 19:53:40 READER :  Added to table dataset3 => DATA : CODE_SINGLENOE   Value: 34
+2022-06-22 19:53:40 READER :  Added to table dataset3 => DATA : CODE_MULTIPLENODE   Value: 57
+2022-06-22 19:53:40 READER :  Added to table dataset1 => DATA : CODE_DIGITAL   Value: 48
+2022-06-22 19:53:42 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 3)
+2022-06-22 19:53:42 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 40)
+2022-06-22 19:53:42 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 79)
+GLENOE Value: 79)
+RECIVER
+2022-06-22 19:53:44 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 82)
+2022-06-22 19:53:44 WRITER :  Writer poslao podatak na upis(Code: CODE_MULTIPLENODE Value: 35)
+2022-06-22 19:53:44 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_SOURCE Value: 45)
+RECIVER
+2022-06-22 19:53:46 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 75)
+2022-06-22 19:53:46 WRITER :  Writer poslao podatak na upis(Code: CODE_SINGLENOE Value: 38)
+2022-06-22 19:53:46 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 77)
+ljem na REPLICATOR RECIVER
+2022-06-22 19:53:48 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 71)
+2022-06-22 19:53:48 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 41)
+2022-06-22 19:53:48 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 41)
+SOURCE Value: 41)
+RECIVER
+2022-06-22 19:53:50 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 60)
+2022-06-22 19:53:50 WRITER :  Writer poslao podatak na upis(Code: CODE_CUSTOM Value: 15)
+2022-06-22 19:53:50 REPLICATOR RECIVER :  Primio sadrzaj od REPLICATOR SENDER (Code: CODE_ANALOG Value: 26)
+RECIVER
+2022-06-22 19:53:50 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 26)
+2022-06-22 19:53:52 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 22)
+2022-06-22 19:53:52 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 49)
+2022-06-22 19:53:52 WRITER :  Writer poslao podatak na upis(Code: CODE_LIMITSET Value: 46)
+MITSET Value: 46)
+RECIVER
+2022-06-22 19:53:54 WRITER :  Writer poslao podatak na upis(Code: CODE_DIGITAL Value: 32)
+2022-06-22 19:53:54 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 67)
+2022-06-22 19:53:54 WRITER :  Writer poslao podatak na upis(Code: CODE_SOURCE Value: 16)
+2022-06-22 19:53:56 WRITER :  Writer poslao podatak na upis(Code: CODE_ANALOG Value: 4)

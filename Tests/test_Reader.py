@@ -112,25 +112,25 @@ class TestReader(unittest.TestCase):
 
     @patch('Database.DatabaseFunctions.ConnectDatabase')
     @patch('Logger.Logger.logWriter')
-    def test_write_in_databas_2(self, mock_konekcija, mock_logger):
-        mock_kon = MagicMock(mysql.connector.connect)
-        mock_konekcija.return_value = mock_kon
+    def test_write_in_databas_2(self, mock_konekcija2, mock_logger2):
+        mock_kon2 = MagicMock(mysql.connector.connect)
+        mock_konekcija2.return_value = mock_kon2
         
-        mock_l = MagicMock(logWriter)
-        mock_logger.return_value = mock_l
+        mock_l2 = MagicMock(logWriter)
+        mock_logger2.return_value = mock_l2
 
-        historicalCollection = [DataModel.Data(1, "CODE_ANALOG"), DataModel.Data(2, "CODE_CUSTOM"), DataModel.Data(3, "CODE_SINGLENOE"), DataModel.Data(4, "CODE_CONSUMER"),DataModel.Data(1, "CODE_ANALOG"), DataModel.Data(2, "CODE_CUSTOM"), DataModel.Data(3, "CODE_SINGLENOE"), DataModel.Data(4, "CODE_CONSUMER"),DataModel.Data(1, "CODE_ANALOG"), DataModel.Data(2, "CODE_CUSTOM")]
+        historicalCollection1 = [DataModel.Data(1, "CODE_ANALOG"), DataModel.Data(2, "CODE_CUSTOM"), DataModel.Data(3, "CODE_SINGLENOE"), DataModel.Data(4, "CODE_CONSUMER"),DataModel.Data(1, "CODE_ANALOG"), DataModel.Data(2, "CODE_CUSTOM"), DataModel.Data(3, "CODE_SINGLENOE"), DataModel.Data(4, "CODE_CONSUMER"),DataModel.Data(1, "CODE_ANALOG"), DataModel.Data(2, "CODE_CUSTOM")]
         
 
-        cd1 = DataModel.CollectionDescription(historicalCollection, "CODE_ANALOG")
-        cd2 = DataModel.CollectionDescription(historicalCollection, "CODE_CUSTOM")
-        cd3 = DataModel.CollectionDescription(historicalCollection, "CODE_SINGLENOE")
-        cd4 = DataModel.CollectionDescription(historicalCollection, "CODE_CONSUMER")
+        cd11 = DataModel.CollectionDescription(historicalCollection1, "CODE_ANALOG")
+        cd21 = DataModel.CollectionDescription(historicalCollection1, "CODE_CUSTOM")
+        cd31 = DataModel.CollectionDescription(historicalCollection1, "CODE_SINGLENOE")
+        cd41 = DataModel.CollectionDescription(historicalCollection1, "CODE_CONSUMER")
 
-        cdArray = [cd1, cd2, cd3, cd4]
+        cdArray = [cd11, cd21, cd31, cd41]
 
         with patch('ReaderComponent.Reader.CalculateDifference', return_value=False):
-            assert Reader.WriteInDatabase(cdArray, mock_konekcija) == None
+            assert Reader.WriteInDatabase(cdArray, mock_konekcija2) == None
 
 
 
